@@ -132,7 +132,7 @@
         </script>
 
         <!-- Features Section -->
-        <section class="py-16 md:py-24 bg-white relative">
+        <section class="py-16 md:py-12 md:py-16 bg-white relative">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12 md:mb-20">
                     <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-3 block">Why Publish With Us</span>
@@ -173,7 +173,7 @@
         </section>
         
         <!-- Farm Science Today Highlight -->
-        <section class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+        <section class="py-16 md:py-12 md:py-16 bg-slate-50 border-t border-slate-200">
             <div class="container mx-auto px-6">
                 <div class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 sm:p-10 md:p-16 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 relative overflow-hidden">
                     

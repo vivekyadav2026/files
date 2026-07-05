@@ -2,7 +2,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 pt-20 pb-10 border-t-[6px] border-emerald-500 relative overflow-hidden">
+    <footer class="bg-slate-900 text-slate-300 pt-12 md:pt-16 pb-8 border-t-[6px] border-emerald-500 relative overflow-hidden">
         <!-- Subtle background decoration -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-5">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute w-full h-full">

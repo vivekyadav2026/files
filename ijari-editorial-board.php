@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-slate-900 text-white py-24 overflow-hidden border-b border-slate-800 text-center">
+    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_2.png" alt="Editorial Board" class="w-full h-full object-cover object-center opacity-30 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-slate-950/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Editorial Board" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -23,7 +23,7 @@
     </div>
     
         
-        <div class="container mx-auto px-6 py-20 max-w-6xl">
+        <div class="container mx-auto px-6 py-10 md:py-16 max-w-6xl">
             <!-- Editor in Chief -->
             <div class="mb-16">
                 <div class="flex items-center gap-4 mb-8">
