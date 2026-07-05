@@ -14,7 +14,7 @@
             <div class="md:col-span-4">
                 <a href="index.php" class="flex items-center gap-4 mb-6">
                     <div class="bg-white p-2 rounded-xl">
-                        <img src="assets/logo.png" alt="IJARI Logo" class="h-10 w-auto">
+                        <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto">
                     </div>
                     <h2 class="font-bold text-white text-2xl tracking-wide font-['Outfit']">IJARI</h2>
                 </a>

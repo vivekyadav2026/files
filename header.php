@@ -60,7 +60,7 @@
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.php" class="flex items-center gap-4 group">
                 <div class="relative w-14 h-14 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-100 flex items-center justify-center transition-transform group-hover:scale-105">
-                    <img src="assets/logo.png" alt="IJARI Logo" class="h-10 w-auto object-contain fallback-icon">
+                    <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto object-contain fallback-icon">
                 </div>
                 <div>
                     <h1 class="font-bold text-emerald-900 text-lg leading-tight uppercase hidden md:block tracking-wide">Int. Journal of Agricultural<br>Research & Innovation</h1>
@@ -182,28 +182,34 @@
                     <a href="index.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">Home</a>
                     <a href="about.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">About Us</a>
                     
-                    <div class="space-y-1.5 py-2 border-b border-slate-100">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">IJARI Journal</span>
-                        <div class="grid grid-cols-1 gap-2 pl-3 text-sm font-medium text-slate-600">
-                            <a href="ijari-about.php" class="hover:text-emerald-600 transition-colors">About Journal</a>
-                            <a href="ijari-editorial-board.php" class="hover:text-emerald-600 transition-colors">Editorial Board</a>
-                            <a href="ijari-archives.php" class="hover:text-emerald-600 transition-colors">Archives</a>
-                            <a href="ijari-current-issues.php" class="hover:text-emerald-600 transition-colors">Current Issues</a>
-                            <a href="ijari-instructions.php" class="hover:text-emerald-600 transition-colors">Instructions to Author</a>
-                            <a href="ijari-policies-ethics.php" class="hover:text-emerald-600 transition-colors">Policies & Ethics</a>
-                            <a href="ijari-plagiarism-policy.php" class="hover:text-emerald-600 transition-colors">Plagiarism Policy</a>
-                            <a href="ijari-peer-review.php" class="hover:text-emerald-600 transition-colors">Peer Review Process</a>
+                    <div class="border-b border-slate-100 py-1.5">
+                        <button onclick="toggleSubmenu('submenu-journal', 'chevron-journal')" class="w-full flex justify-between items-center text-left py-2 hover:text-emerald-600 transition-colors focus:outline-none">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider font-['Outfit']">IJARI Journal</span>
+                            <i id="chevron-journal" class="fas fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="submenu-journal" class="hidden pl-3 pb-2 pt-1 space-y-2 text-sm font-medium text-slate-600">
+                            <a href="ijari-about.php" class="block hover:text-emerald-600 py-1 transition-colors">About Journal</a>
+                            <a href="ijari-editorial-board.php" class="block hover:text-emerald-600 py-1 transition-colors">Editorial Board</a>
+                            <a href="ijari-archives.php" class="block hover:text-emerald-600 py-1 transition-colors">Archives</a>
+                            <a href="ijari-current-issues.php" class="block hover:text-emerald-600 py-1 transition-colors">Current Issues</a>
+                            <a href="ijari-instructions.php" class="block hover:text-emerald-600 py-1 transition-colors">Instructions to Author</a>
+                            <a href="ijari-policies-ethics.php" class="block hover:text-emerald-600 py-1 transition-colors">Policies & Ethics</a>
+                            <a href="ijari-plagiarism-policy.php" class="block hover:text-emerald-600 py-1 transition-colors">Plagiarism Policy</a>
+                            <a href="ijari-peer-review.php" class="block hover:text-emerald-600 py-1 transition-colors">Peer Review Process</a>
                         </div>
                     </div>
 
                     <a href="society.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">Society</a>
 
-                    <div class="space-y-1.5 py-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Farm Science Today</span>
-                        <div class="grid grid-cols-1 gap-2 pl-3 text-sm font-medium text-slate-600">
-                            <a href="emagazine-about.php" class="hover:text-emerald-600 transition-colors">About Magazine</a>
-                            <a href="emagazine-guidelines.php" class="hover:text-emerald-600 transition-colors">Submission Guidelines</a>
-                            <a href="emagazine-archives.php" class="hover:text-emerald-600 transition-colors">Archives</a>
+                    <div class="border-b border-slate-100 py-1.5">
+                        <button onclick="toggleSubmenu('submenu-magazine', 'chevron-magazine')" class="w-full flex justify-between items-center text-left py-2 hover:text-emerald-600 transition-colors focus:outline-none">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider font-['Outfit']">Farm Science Today</span>
+                            <i id="chevron-magazine" class="fas fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="submenu-magazine" class="hidden pl-3 pb-2 pt-1 space-y-2 text-sm font-medium text-slate-600">
+                            <a href="emagazine-about.php" class="block hover:text-emerald-600 py-1 transition-colors">About Magazine</a>
+                            <a href="emagazine-guidelines.php" class="block hover:text-emerald-600 py-1 transition-colors">Submission Guidelines</a>
+                            <a href="emagazine-archives.php" class="block hover:text-emerald-600 py-1 transition-colors">Archives</a>
                         </div>
                     </div>
                 </nav>
@@ -230,6 +236,18 @@
             } else {
                 menu.classList.add('opacity-0', 'pointer-events-none');
                 drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function toggleSubmenu(submenuId, chevronId) {
+            const submenu = document.getElementById(submenuId);
+            const chevron = document.getElementById(chevronId);
+            if (submenu.classList.contains('hidden')) {
+                submenu.classList.remove('hidden');
+                chevron.classList.add('rotate-180');
+            } else {
+                submenu.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
             }
         }
     </script>
