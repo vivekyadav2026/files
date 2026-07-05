@@ -64,7 +64,7 @@
                     <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto object-contain fallback-icon">
                 </div>
                 <div>
-                    <h1 class="font-bold text-emerald-900 text-lg leading-tight uppercase hidden md:block tracking-wide">Int. Journal of Agricultural<br>Research & Innovation</h1>
+                    <h1 class="font-bold text-emerald-900 text-base md:text-lg leading-tight uppercase hidden md:block tracking-wide">International Journal of Agricultural<br>Research & Innovation</h1>
                     <h1 class="font-bold text-emerald-900 text-2xl md:hidden tracking-wider">IJARI</h1>
                 </div>
             </a>
