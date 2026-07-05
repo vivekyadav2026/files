@@ -175,7 +175,7 @@
         <!-- Farm Science Today Highlight -->
         <section class="py-16 md:py-12 md:py-16 bg-slate-50 border-t border-slate-200">
             <div class="container mx-auto px-6">
-                <div class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 sm:p-10 md:p-16 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 relative overflow-hidden">
+                <div class="bg-white rounded-3xl md:rounded-[2.5rem] p-5 sm:p-10 md:p-16 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row items-center gap-6 lg:gap-16 relative overflow-hidden">
                     
                     <!-- Decorative blob -->
                     <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
@@ -196,7 +196,7 @@
                             <a href="emagazine-submit.php" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold transition-colors shadow-lg shadow-emerald-600/20 text-sm sm:text-base">Submit Article</a>
                         </div>
                     </div>
-                    <div class="lg:w-1/2 flex justify-center relative z-10 w-full mt-10 lg:mt-0">
+                    <div class="lg:w-1/2 flex justify-center relative z-10 w-full lg:mt-0">
                         <div class="relative w-full max-w-[280px] sm:max-w-sm aspect-[3/4] bg-slate-800 rounded-3xl shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-all duration-500 flex items-center justify-center overflow-hidden border-4 sm:border-8 border-white group">
                             <img src="assets/banner_slide_3.png" alt="Farm Science" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>

@@ -22,7 +22,7 @@ $submissions = read_json($submissionsFile);
 $articles = read_json($articlesFile);
 $messages = read_json($messagesFile);
 
-// Handle Actions (Delete/Unpublish/Delete Message)
+// Handle Actions (Delete/Unpublish/Delete Message/Change Password)
 $action = $_GET['action'] ?? '';
 $id = $_GET['id'] ?? '';
 
@@ -68,6 +68,30 @@ if ($action && $id) {
     }
 }
 
+// Handle Change Password Form
+$error_pwd = '';
+$success_pwd = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'change_password') {
+    $current = $_POST['current_password'] ?? '';
+    $newPass = $_POST['new_password'] ?? '';
+    $confirmPass = $_POST['confirm_password'] ?? '';
+    
+    $credsFile = '../data/admin_credentials.json';
+    $creds = json_decode(file_get_contents($credsFile), true);
+    
+    if (!password_verify($current, $creds['password_hash'])) {
+        $error_pwd = 'Current password is incorrect.';
+    } elseif ($newPass !== $confirmPass) {
+        $error_pwd = 'New passwords do not match.';
+    } elseif (strlen($newPass) < 6) {
+        $error_pwd = 'New password must be at least 6 characters.';
+    } else {
+        $creds['password_hash'] = password_hash($newPass, PASSWORD_DEFAULT);
+        file_put_contents($credsFile, json_encode($creds, JSON_PRETTY_PRINT));
+        $success_pwd = 'Password changed successfully.';
+    }
+}
+
 $msg = $_GET['msg'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -86,12 +110,16 @@ $msg = $_GET['msg'] ?? '';
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen overflow-hidden">
 
-    <div class="flex h-screen overflow-hidden bg-slate-50">
+    <div class="flex h-screen overflow-hidden bg-slate-50 relative">
+        
+        <!-- Sidebar Overlay Backdrop for Mobile -->
+        <div id="sidebar-backdrop" onclick="toggleSidebar()" class="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-sm hidden md:hidden transition-all duration-300"></div>
+
         <!-- Sidebar -->
-        <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800">
+        <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex">
             <div>
                 <!-- Header Logo -->
-                <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+                <div class="p-6 border-b border-slate-800 flex items-center gap-3 relative">
                     <div class="bg-emerald-500 p-2.5 rounded-xl text-white shadow-md shadow-emerald-500/20">
                         <i class="fas fa-user-shield text-lg"></i>
                     </div>
@@ -99,6 +127,11 @@ $msg = $_GET['msg'] ?? '';
                         <h1 class="font-bold text-white text-base leading-tight">IJARI Admin</h1>
                         <p class="text-xs text-slate-500">Publication Control Center</p>
                     </div>
+                    
+                    <!-- Close Button on Mobile -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white absolute top-6 right-6 focus:outline-none">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
                 </div>
                 
                 <!-- Navigation Links -->
@@ -131,6 +164,9 @@ $msg = $_GET['msg'] ?? '';
                             <span class="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $msgCount; ?></span>
                         <?php endif; ?>
                     </button>
+                    <button onclick="showTab('settings')" id="tab-btn-settings" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-key w-5 text-base"></i> Change Password
+                    </button>
                     <div class="pt-4 mt-4 border-t border-slate-800">
                         <a href="../index.php" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
                             <i class="fas fa-external-link-alt w-5 text-base"></i> View Live Site
@@ -159,15 +195,21 @@ $msg = $_GET['msg'] ?? '';
         <!-- Main Content Area -->
         <div class="flex-grow flex flex-col h-screen overflow-hidden">
             <!-- Top Header bar -->
-            <header class="bg-white border-b border-slate-100 py-5 px-8 flex justify-between items-center shrink-0">
-                <h2 id="page-title" class="font-bold text-xl text-slate-900 font-['Outfit']">Dashboard Overview</h2>
+            <header class="bg-white border-b border-slate-100 py-5 px-6 md:px-8 flex justify-between items-center shrink-0">
+                <div class="flex items-center">
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-slate-600 hover:text-slate-950 focus:outline-none mr-4">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h2 id="page-title" class="font-bold text-xl text-slate-900 font-['Outfit']">Dashboard Overview</h2>
+                </div>
                 <div class="flex items-center gap-4">
-                    <div class="text-sm text-slate-500 font-medium"><?php echo date('l, M d, Y'); ?></div>
+                    <div class="text-sm text-slate-500 font-medium hidden sm:block"><?php echo date('l, M d, Y'); ?></div>
                 </div>
             </header>
 
             <!-- Scrollable Content Pane -->
-            <div class="flex-grow overflow-y-auto p-8">
+            <div class="flex-grow overflow-y-auto p-5 md:p-8">
                 
                 <?php if (!empty($msg)): ?>
                     <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl mb-8 flex gap-3 items-center shadow-sm max-w-4xl">
@@ -281,7 +323,7 @@ $msg = $_GET['msg'] ?? '';
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <a href="../<?php echo htmlspecialchars($sub['file_path']); ?>" download class="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-800 font-bold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition-all">
-                                                    <i class="fas fa-file-download"></i> Doc/Word
+                                                    <i class="fas fa-file-download"></i> Doc
                                                 </a>
                                             </td>
                                             <td class="px-8 py-5 text-right space-x-2 whitespace-nowrap">
@@ -344,7 +386,7 @@ $msg = $_GET['msg'] ?? '';
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <a href="../<?php echo htmlspecialchars($art['pdf_path']); ?>" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-800 font-bold bg-red-50 px-3 py-1.5 rounded-lg border border-red-100 hover:bg-red-100 transition-all">
-                                                    <i class="fas fa-file-pdf"></i> View PDF
+                                                    <i class="fas fa-file-pdf"></i> PDF
                                                 </a>
                                             </td>
                                             <td class="px-8 py-5 text-right">
@@ -407,21 +449,77 @@ $msg = $_GET['msg'] ?? '';
                     </div>
                 </div>
 
+                <!-- Tab 5: Settings / Change Password -->
+                <div id="tab-settings" class="space-y-6 max-w-xl hidden">
+                    <?php if (!empty($error_pwd)): ?>
+                        <div class="bg-red-50 border border-red-200 text-red-800 p-5 rounded-2xl mb-6 flex gap-3 items-center shadow-sm">
+                            <i class="fas fa-exclamation-circle text-red-500 text-lg"></i>
+                            <span class="text-sm font-semibold"><?php echo htmlspecialchars($error_pwd); ?></span>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($success_pwd)): ?>
+                        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-5 rounded-2xl mb-6 flex gap-3 items-center shadow-sm">
+                            <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                            <span class="text-sm font-semibold"><?php echo htmlspecialchars($success_pwd); ?></span>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 text-left">
+                        <h3 class="text-xl font-bold text-slate-800 font-['Outfit'] border-b border-slate-50 pb-2 mb-6">Change Account Password</h3>
+                        
+                        <form action="" method="POST" class="space-y-6">
+                            <input type="hidden" name="action" value="change_password">
+                            
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">Current Password *</label>
+                                <input type="password" name="current_password" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">New Password *</label>
+                                <input type="password" name="new_password" required minlength="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">Confirm New Password *</label>
+                                <input type="password" name="confirm_password" required minlength="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+
+                            <button type="submit" class="w-full bg-slate-900 text-white font-bold py-3.5 rounded-xl hover:bg-emerald-600 transition-colors shadow-lg text-sm flex items-center justify-center gap-2">
+                                Update Password <i class="fas fa-save text-xs"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Client-side Tab Switcher Script -->
+    <!-- Client-side Tab Switcher & Responsive Menu Scripts -->
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('admin-sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
         function showTab(tabId) {
             // Hide all tabs
             document.getElementById('tab-overview').classList.add('hidden');
             document.getElementById('tab-pending').classList.add('hidden');
             document.getElementById('tab-catalog').classList.add('hidden');
             document.getElementById('tab-messages').classList.add('hidden');
+            document.getElementById('tab-settings').classList.add('hidden');
             
             // Deactivate all button active styles
-            const btns = ['overview', 'pending', 'catalog', 'messages'];
+            const btns = ['overview', 'pending', 'catalog', 'messages', 'settings'];
             btns.forEach(btn => {
                 const el = document.getElementById('tab-btn-' + btn);
                 if (el) {
@@ -445,18 +543,32 @@ $msg = $_GET['msg'] ?? '';
                 overview: 'Dashboard Overview',
                 pending: 'Pending Submissions',
                 catalog: 'Published Catalog',
-                messages: 'Contact Messages'
+                messages: 'Contact Messages',
+                settings: 'Change Password'
             };
             document.getElementById('page-title').innerText = titles[tabId];
             
             // Persist tab state across dashboard reloads
             localStorage.setItem('admin_active_tab', tabId);
+
+            // Auto-close sidebar on mobile after clicking a tab
+            const sidebar = document.getElementById('admin-sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            if (!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
         }
 
         // Initialize active tab on load
         window.addEventListener('DOMContentLoaded', () => {
-            const activeTab = localStorage.getItem('admin_active_tab') || 'overview';
-            showTab(activeTab);
+            // If server form validation triggers, we display settings tab if form was posted
+            <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'change_password'): ?>
+                showTab('settings');
+            <?php else: ?>
+                const activeTab = localStorage.getItem('admin_active_tab') || 'overview';
+                showTab(activeTab);
+            <?php endif; ?>
         });
     </script>
 

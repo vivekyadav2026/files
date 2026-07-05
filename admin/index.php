@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    if ($username === ADMIN_USER && $password === ADMIN_PASS) {
+    if ($username === ADMIN_USER && password_verify($password, ADMIN_PASS_HASH)) {
         $_SESSION['admin_logged_in'] = true;
         header('Location: dashboard.php');
         exit;

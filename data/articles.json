@@ -1,17 +1,1 @@
-[
-  {
-    "id": "art_mock_1",
-    "submission_id": "sub_mock_1",
-    "type": "journal",
-    "title": "Optimizing Nitrogen Use Efficiency in Precision Rice Farming Systems",
-    "authors": "Dr. Praveen Kumar, Dr. Abhishek Raj",
-    "email": "praveen22@rpcau.ac.in",
-    "abstract": "Nitrogen use efficiency (NUE) remains a key bottleneck in maximizing grain yields while minimizing environmental nitrogen losses. This study evaluates a sensor-based precision application framework for nitrogen management in lowland rice. Results show a 15% increase in NUE and a 12% reduction in greenhouse gas emissions compared to traditional blanket applications.",
-    "volume": "1",
-    "issue": "1",
-    "year": "2026",
-    "doi": "10.1234/ijari.2026.001",
-    "pdf_path": "uploads/articles/sample_article.pdf",
-    "published_at": 1783248000
-  }
-]
+[]

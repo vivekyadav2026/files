@@ -114,12 +114,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen overflow-hidden">
 
-    <div class="flex h-screen overflow-hidden bg-slate-50">
+    <div class="flex h-screen overflow-hidden bg-slate-50 relative">
+        <!-- Sidebar Overlay Backdrop for Mobile -->
+        <div id="sidebar-backdrop" onclick="toggleSidebar()" class="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-sm hidden md:hidden transition-all duration-300"></div>
+
         <!-- Sidebar -->
-        <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800">
+        <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex">
             <div>
                 <!-- Header Logo -->
-                <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+                <div class="p-6 border-b border-slate-800 flex items-center gap-3 relative">
                     <div class="bg-emerald-500 p-2.5 rounded-xl text-white shadow-md shadow-emerald-500/20">
                         <i class="fas fa-user-shield text-lg"></i>
                     </div>
@@ -127,6 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h1 class="font-bold text-white text-base leading-tight">IJARI Admin</h1>
                         <p class="text-xs text-slate-500">Publication Control Center</p>
                     </div>
+                    
+                    <!-- Close Button on Mobile -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white absolute top-6 right-6 focus:outline-none">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
                 </div>
                 
                 <!-- Navigation Links -->
@@ -141,6 +149,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </button>
                     <button onclick="goToTab('catalog')" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
                         <i class="fas fa-book-open w-5 text-base"></i> Published Catalog
+                    </button>
+                    <button onclick="goToTab('messages')" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-envelope-open-text w-5 text-base"></i> Contact Messages
+                    </button>
+                    <button onclick="goToTab('settings')" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-key w-5 text-base"></i> Change Password
                     </button>
                     <div class="pt-4 mt-4 border-t border-slate-800">
                         <a href="../index.php" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
@@ -170,16 +184,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Main Content Area -->
         <div class="flex-grow flex flex-col h-screen overflow-hidden">
             <!-- Top Header bar -->
-            <header class="bg-white border-b border-slate-100 py-5 px-8 flex justify-between items-center shrink-0">
-                <div class="flex items-center gap-3">
-                    <a href="dashboard.php" class="text-slate-400 hover:text-slate-950 transition-colors mr-1"><i class="fas fa-arrow-left text-lg"></i></a>
-                    <h2 class="font-bold text-xl text-slate-900 font-['Outfit']">Publish Submission</h2>
+            <header class="bg-white border-b border-slate-100 py-5 px-6 md:px-8 flex justify-between items-center shrink-0">
+                <div class="flex items-center">
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-slate-600 hover:text-slate-950 focus:outline-none mr-4">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <a href="dashboard.php" class="text-slate-400 hover:text-slate-950 transition-colors mr-1"><i class="fas fa-arrow-left text-lg"></i></a>
+                        <h2 class="font-bold text-xl text-slate-900 font-['Outfit']">Publish Submission</h2>
+                    </div>
                 </div>
                 <a href="dashboard.php" class="text-sm text-slate-400 hover:text-slate-800 transition-colors">Cancel</a>
             </header>
 
             <!-- Scrollable Content Pane -->
-            <div class="flex-grow overflow-y-auto p-8">
+            <div class="flex-grow overflow-y-auto p-5 md:p-8">
                 
                 <?php if (!empty($error)): ?>
                     <div class="bg-red-500/15 border border-red-500/30 text-red-800 p-4 rounded-xl mb-6 text-sm flex gap-3 items-center max-w-3xl">
@@ -188,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 <?php endif; ?>
 
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 max-w-3xl">
+                <div class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100 max-w-3xl">
                     <form action="" method="POST" enctype="multipart/form-data" class="space-y-8">
                         
                         <div class="space-y-2">
@@ -203,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-slate-700 font-title">Abstract / Summary *</label>
-                            <textarea name="abstract" required rows="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"><?php echo htmlspecialchars($submission['abstract']); ?></textarea>
+                            <textarea name="abstract" required rows="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none text-sm"><?php echo htmlspecialchars($submission['abstract']); ?></textarea>
                         </div>
 
                         <div class="grid grid-cols-3 gap-6">
@@ -247,6 +267,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('admin-sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
         function goToTab(tabId) {
             localStorage.setItem('admin_active_tab', tabId);
             window.location.href = 'dashboard.php';
