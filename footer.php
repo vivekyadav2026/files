@@ -36,6 +36,7 @@
                     <li><a href="ijari-instructions.php" class="hover:text-emerald-400 transition-colors flex items-center gap-2 text-slate-400"><i class="fas fa-chevron-right text-[10px] text-emerald-500"></i> Instructions to Author</a></li>
                     <li><a href="ijari-policies-ethics.php" class="hover:text-emerald-400 transition-colors flex items-center gap-2 text-slate-400"><i class="fas fa-chevron-right text-[10px] text-emerald-500"></i> Publication Ethics</a></li>
                     <li><a href="ijari-submit.php" class="hover:text-emerald-400 transition-colors flex items-center gap-2 text-slate-400"><i class="fas fa-chevron-right text-[10px] text-emerald-500"></i> Submit Paper</a></li>
+                    <li><a href="contact.php" class="hover:text-emerald-400 transition-colors flex items-center gap-2 text-slate-400"><i class="fas fa-chevron-right text-[10px] text-emerald-500"></i> Contact Us</a></li>
                 </ul>
             </div>
             

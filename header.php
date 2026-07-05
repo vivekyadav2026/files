@@ -155,6 +155,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <a href="contact.php" class="hover:text-emerald-600 nav-link transition-colors">Contact Us</a>
             </nav>
             
             <a href="ijari-submit.php" class="hidden lg:inline-flex bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-emerald-700 transition-all shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.23)] hover:-translate-y-0.5 items-center gap-2 nav-text">
@@ -212,6 +214,8 @@
                             <a href="emagazine-archives.php" class="block hover:text-emerald-600 py-1 transition-colors">Archives</a>
                         </div>
                     </div>
+                    
+                    <a href="contact.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Contact Us</a>
                 </nav>
             </div>
             

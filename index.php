@@ -25,22 +25,22 @@
             <div class="absolute inset-0 z-10 flex items-center">
                 <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                     <div class="lg:w-7/12 text-white text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-100 text-xs sm:text-sm font-semibold mb-6 sm:mb-8 backdrop-blur-md">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            OPEN ACCESS JOURNAL
+                        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] sm:text-xs font-semibold mb-6 sm:mb-8 backdrop-blur-md uppercase tracking-wider">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Open Access Journal
                         </div>
-                        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight font-['Outfit'] tracking-tight text-white drop-shadow-lg">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight font-['Outfit'] tracking-tight text-white drop-shadow-md">
                             Advancing Global<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-200">Agricultural Research</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Agricultural Research</span>
                         </h1>
-                        <p class="text-base sm:text-xl text-slate-200 mb-8 sm:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow">
+                        <p class="text-sm sm:text-base lg:text-lg text-slate-300 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow">
                             Publishing high-quality, peer-reviewed research across agronomy, biotechnology, horticulture, and allied sciences for a sustainable future.
                         </p>
-                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                            <a href="ijari-submit.php" class="bg-emerald-500 text-white hover:bg-emerald-400 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold transition-all shadow-[0_8px_30px_rgb(16,185,129,0.3)] hover:-translate-y-1 flex items-center gap-2 sm:gap-3 text-base sm:text-lg">
-                                Submit Manuscript <i class="fas fa-arrow-right"></i>
+                        <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto lg:flex lg:flex-row lg:justify-start lg:max-w-none">
+                            <a href="ijari-submit.php" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 py-3 px-4 rounded-xl font-semibold transition-all shadow-[0_8px_20px_rgba(16,185,129,0.25)] flex items-center justify-center gap-1.5 text-xs sm:text-sm md:text-base">
+                                Submit Manuscript <i class="fas fa-arrow-right text-[10px]"></i>
                             </a>
-                            <a href="ijari-about.php" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold transition-all flex items-center gap-2 sm:gap-3 text-base sm:text-lg hover:-translate-y-1">
+                            <a href="ijari-about.php" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-1.5 text-xs sm:text-sm md:text-base">
                                 Discover More
                             </a>
                         </div>

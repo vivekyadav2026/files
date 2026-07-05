@@ -4,6 +4,7 @@ check_auth();
 
 $submissionsFile = '../data/submissions.json';
 $articlesFile = '../data/articles.json';
+$messagesFile = '../data/messages.json';
 
 // Helper to read JSON
 function read_json($file) {
@@ -19,8 +20,9 @@ function write_json($file, $data) {
 
 $submissions = read_json($submissionsFile);
 $articles = read_json($articlesFile);
+$messages = read_json($messagesFile);
 
-// Handle Actions (Delete/Unpublish)
+// Handle Actions (Delete/Unpublish/Delete Message)
 $action = $_GET['action'] ?? '';
 $id = $_GET['id'] ?? '';
 
@@ -55,6 +57,15 @@ if ($action && $id) {
         header('Location: dashboard.php?msg=Article unpublished and returned to submissions');
         exit;
     }
+
+    if ($action === 'delete_message') {
+        $messages = array_filter($messages, function($m) use ($id) {
+            return $m['id'] !== $id;
+        });
+        write_json($messagesFile, array_values($messages));
+        header('Location: dashboard.php?msg=Message deleted successfully');
+        exit;
+    }
 }
 
 $msg = $_GET['msg'] ?? '';
@@ -73,212 +84,381 @@ $msg = $_GET['msg'] ?? '';
         h1, h2, h3, button, .font-title { font-family: 'Outfit', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 min-h-screen overflow-hidden">
 
-    <!-- Navbar -->
-    <header class="bg-slate-900 text-white shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-emerald-500 p-2 rounded-lg text-white">
-                    <i class="fas fa-lock text-lg"></i>
-                </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight uppercase font-title">IJARI Admin Panel</h1>
-                    <p class="text-xs text-slate-400">Manage Journal and e-Magazine Publications</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="../index.php" target="_blank" class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1.5">
-                    <i class="fas fa-external-link-alt text-xs"></i> View Site
-                </a>
-                <span class="text-slate-600">|</span>
-                <a href="logout.php" class="bg-red-600/90 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all shadow-sm">
-                    Logout <i class="fas fa-sign-out-alt ml-1"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-6 py-10 max-w-6xl">
-        
-        <?php if (!empty($msg)): ?>
-            <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl mb-8 flex gap-3 items-center shadow-sm">
-                <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
-                <span class="font-medium"><?php echo htmlspecialchars($msg); ?></span>
-            </div>
-        <?php endif; ?>
-
-        <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
-                <div class="w-12 h-12 bg-amber-50 rounded-xl text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-hourglass-start"></i></div>
-                <div>
-                    <div class="text-sm text-slate-400 font-semibold uppercase tracking-wider">Pending Submissions</div>
-                    <div class="text-3xl font-bold text-slate-800 mt-1">
-                        <?php 
-                        echo count(array_filter($submissions, function($s) { return $s['status'] === 'pending'; })); 
-                        ?>
+    <div class="flex h-screen overflow-hidden bg-slate-50">
+        <!-- Sidebar -->
+        <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800">
+            <div>
+                <!-- Header Logo -->
+                <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+                    <div class="bg-emerald-500 p-2.5 rounded-xl text-white shadow-md shadow-emerald-500/20">
+                        <i class="fas fa-user-shield text-lg"></i>
                     </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
-                <div class="w-12 h-12 bg-emerald-50 rounded-xl text-emerald-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-file-invoice"></i></div>
-                <div>
-                    <div class="text-sm text-slate-400 font-semibold uppercase tracking-wider">Published Journal Papers</div>
-                    <div class="text-3xl font-bold text-slate-800 mt-1">
-                        <?php 
-                        echo count(array_filter($articles, function($a) { return $a['type'] === 'journal'; })); 
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
-                <div class="w-12 h-12 bg-teal-50 rounded-xl text-teal-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-paper-plane"></i></div>
-                <div>
-                    <div class="text-sm text-slate-400 font-semibold uppercase tracking-wider">Published Magazine Articles</div>
-                    <div class="text-3xl font-bold text-slate-800 mt-1">
-                        <?php 
-                        echo count(array_filter($articles, function($a) { return $a['type'] === 'magazine'; })); 
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section Tabs / Grid -->
-        <div class="space-y-12">
-
-            <!-- 1. Pending Submissions Table -->
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                     <div>
-                        <h2 class="text-xl font-bold text-slate-800 font-title">Pending Submissions</h2>
-                        <p class="text-sm text-slate-500">Review newly submitted manuscripts and articles</p>
+                        <h1 class="font-bold text-white text-base leading-tight">IJARI Admin</h1>
+                        <p class="text-xs text-slate-500">Publication Control Center</p>
                     </div>
                 </div>
                 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100/50 text-[13px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
-                                <th class="px-8 py-4">Author</th>
-                                <th class="px-6 py-4">Title & Details</th>
-                                <th class="px-6 py-4">Type</th>
-                                <th class="px-6 py-4 text-center">Manuscript</th>
-                                <th class="px-8 py-4 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-sm">
-                            <?php 
-                            $pending = array_filter($submissions, function($s) { return $s['status'] === 'pending'; });
-                            if (empty($pending)): 
-                            ?>
-                                <tr>
-                                    <td colspan="5" class="px-8 py-10 text-center text-slate-400 font-medium">
-                                        <i class="fas fa-inbox text-3xl mb-3 block text-slate-300"></i>
-                                        No pending submissions found.
-                                    </td>
-                                </tr>
-                            <?php else: foreach ($pending as $sub): ?>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-8 py-5">
-                                        <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($sub['first_name'] . ' ' . $sub['last_name']); ?></div>
-                                        <a href="mailto:<?php echo htmlspecialchars($sub['email']); ?>" class="text-xs text-slate-400 hover:text-emerald-600 transition-colors"><?php echo htmlspecialchars($sub['email']); ?></a>
-                                    </td>
-                                    <td class="px-6 py-5 max-w-md">
-                                        <div class="font-medium text-slate-800 line-clamp-2"><?php echo htmlspecialchars($sub['title']); ?></div>
-                                        <div class="text-xs text-slate-400 mt-1">Submitted on: <?php echo date('M d, Y h:i A', $sub['submitted_at']); ?></div>
-                                    </td>
-                                    <td class="px-6 py-5">
-                                        <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold <?php echo $sub['type'] === 'journal' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-teal-50 text-teal-700 border border-teal-100'; ?>">
-                                            <?php echo $sub['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-5 text-center">
-                                        <a href="../<?php echo htmlspecialchars($sub['file_path']); ?>" download class="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-800 font-bold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition-all">
-                                            <i class="fas fa-file-download"></i> Doc/Word
-                                        </a>
-                                    </td>
-                                    <td class="px-8 py-5 text-right space-x-2">
-                                        <a href="publish.php?id=<?php echo htmlspecialchars($sub['id']); ?>" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-sm transition-all hover:shadow-lg inline-block">
-                                            <i class="fas fa-check-circle mr-1"></i> Publish
-                                        </a>
-                                        <a href="dashboard.php?action=delete_submission&id=<?php echo htmlspecialchars($sub['id']); ?>" onclick="return confirm('Are you sure you want to delete this submission?')" class="bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-xs font-bold px-3 py-2 rounded-xl transition-colors inline-block border border-slate-200 hover:border-red-100">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; endif; ?>
-                        </tbody>
-                    </table>
+                <!-- Navigation Links -->
+                <nav class="p-4 space-y-1.5">
+                    <button onclick="showTab('overview')" id="tab-btn-overview" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-chart-pie w-5 text-base"></i> Dashboard Overview
+                    </button>
+                    <button onclick="showTab('pending')" id="tab-btn-pending" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-hourglass-start w-5 text-base"></i> Pending Review
+                        </div>
+                        <?php 
+                        $pendingCount = count(array_filter($submissions, function($s) { return $s['status'] === 'pending'; }));
+                        if ($pendingCount > 0): 
+                        ?>
+                            <span class="bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $pendingCount; ?></span>
+                        <?php endif; ?>
+                    </button>
+                    <button onclick="showTab('catalog')" id="tab-btn-catalog" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-book-open w-5 text-base"></i> Published Catalog
+                    </button>
+                    <button onclick="showTab('messages')" id="tab-btn-messages" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope-open-text w-5 text-base"></i> Contact Messages
+                        </div>
+                        <?php 
+                        $msgCount = count($messages);
+                        if ($msgCount > 0): 
+                        ?>
+                            <span class="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $msgCount; ?></span>
+                        <?php endif; ?>
+                    </button>
+                    <div class="pt-4 mt-4 border-t border-slate-800">
+                        <a href="../index.php" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                            <i class="fas fa-external-link-alt w-5 text-base"></i> View Live Site
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            
+            <!-- Profile slot at bottom -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950/20">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">System Admin</div>
+                            <div class="text-xs text-slate-500">Active Session</div>
+                        </div>
+                    </div>
+                    <a href="logout.php" class="text-slate-500 hover:text-red-500 transition-colors py-1 px-2 rounded-lg hover:bg-slate-800" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
                 </div>
             </div>
+        </aside>
 
-            <!-- 2. Published Articles Management -->
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50">
-                    <h2 class="text-xl font-bold text-slate-800 font-title">Published Articles Catalog</h2>
-                    <p class="text-sm text-slate-500">Manage approved research papers and e-magazine publications</p>
+        <!-- Main Content Area -->
+        <div class="flex-grow flex flex-col h-screen overflow-hidden">
+            <!-- Top Header bar -->
+            <header class="bg-white border-b border-slate-100 py-5 px-8 flex justify-between items-center shrink-0">
+                <h2 id="page-title" class="font-bold text-xl text-slate-900 font-['Outfit']">Dashboard Overview</h2>
+                <div class="flex items-center gap-4">
+                    <div class="text-sm text-slate-500 font-medium"><?php echo date('l, M d, Y'); ?></div>
                 </div>
+            </header>
+
+            <!-- Scrollable Content Pane -->
+            <div class="flex-grow overflow-y-auto p-8">
                 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100/50 text-[13px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
-                                <th class="px-8 py-4">Authors</th>
-                                <th class="px-6 py-4">Article Metadata</th>
-                                <th class="px-6 py-4">Type / Index</th>
-                                <th class="px-6 py-4 text-center">PDF</th>
-                                <th class="px-8 py-4 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-sm">
-                            <?php if (empty($articles)): ?>
-                                <tr>
-                                    <td colspan="5" class="px-8 py-10 text-center text-slate-400 font-medium">
-                                        <i class="fas fa-newspaper text-3xl mb-3 block text-slate-300"></i>
-                                        No published articles found.
-                                    </td>
-                                </tr>
-                            <?php else: foreach ($articles as $art): ?>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-8 py-5">
-                                        <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($art['authors']); ?></div>
-                                        <div class="text-xs text-slate-400"><?php echo htmlspecialchars($art['email']); ?></div>
-                                    </td>
-                                    <td class="px-6 py-5 max-w-md">
-                                        <div class="font-medium text-slate-800 line-clamp-2"><?php echo htmlspecialchars($art['title']); ?></div>
-                                        <div class="text-xs text-slate-400 mt-1">
-                                            Vol. <?php echo htmlspecialchars($art['volume']); ?>, 
-                                            Issue <?php echo htmlspecialchars($art['issue']); ?> 
-                                            (<?php echo htmlspecialchars($art['year']); ?>)
-                                            <?php if(!empty($art['doi'])): ?> | DOI: <?php echo htmlspecialchars($art['doi']); ?><?php endif; ?>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-5">
-                                        <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold <?php echo $art['type'] === 'journal' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-teal-50 text-teal-700 border border-teal-100'; ?>">
-                                            <?php echo $art['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-5 text-center">
-                                        <a href="../<?php echo htmlspecialchars($art['pdf_path']); ?>" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-800 font-bold bg-red-50 px-3 py-1.5 rounded-lg border border-red-100 hover:bg-red-100 transition-all">
-                                            <i class="fas fa-file-pdf"></i> View PDF
-                                        </a>
-                                    </td>
-                                    <td class="px-8 py-5 text-right">
-                                        <a href="dashboard.php?action=unpublish&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Are you sure you want to unpublish this article? It will return to the pending list.')" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold px-4 py-2 border border-slate-200 rounded-xl transition-all shadow-sm">
-                                            Unpublish
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; endif; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <?php if (!empty($msg)): ?>
+                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl mb-8 flex gap-3 items-center shadow-sm max-w-4xl">
+                        <i class="fas fa-check-circle text-emerald-500 text-lg"></i>
+                        <span class="font-medium"><?php echo htmlspecialchars($msg); ?></span>
+                    </div>
+                <?php endif; ?>
 
+                <!-- Tab 1: Overview -->
+                <div id="tab-overview" class="space-y-10 max-w-5xl">
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
+                            <div class="w-12 h-12 bg-amber-50 rounded-xl text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-hourglass-start"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Pending Submissions</div>
+                                <div class="text-3xl font-bold text-slate-800 mt-1"><?php echo $pendingCount; ?></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
+                            <div class="w-12 h-12 bg-emerald-50 rounded-xl text-emerald-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-file-invoice"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Published Papers</div>
+                                <div class="text-3xl font-bold text-slate-800 mt-1">
+                                    <?php echo count(array_filter($articles, function($a) { return $a['type'] === 'journal'; })); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
+                            <div class="w-12 h-12 bg-teal-50 rounded-xl text-teal-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-envelope-open-text"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contact Messages</div>
+                                <div class="text-3xl font-bold text-slate-800 mt-1"><?php echo $msgCount; ?></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Greeting & Quick Actions -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-16 -top-16 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3 font-['Outfit']">Welcome Back!</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">You are logged into the IJARI control center. From here, you can process incoming submissions and manage the active publishing catalog dynamically.</p>
+                            </div>
+                            <div class="flex gap-4 border-t border-slate-700/50 pt-6">
+                                <button onclick="showTab('pending')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md">
+                                    Review Submissions
+                                </button>
+                                <button onclick="showTab('messages')" class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all">
+                                    Read Messages
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+                            <h3 class="text-lg font-bold text-slate-900 mb-6 font-['Outfit'] border-b border-slate-50 pb-2">Quick Navigation Links</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <a href="../ijari-submit.php" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 border border-slate-100 text-slate-700 hover:text-emerald-600 transition-all">
+                                    <i class="fas fa-file-invoice text-emerald-500 text-base"></i>
+                                    <span class="text-sm font-semibold">Submit Journal Form</span>
+                                </a>
+                                <a href="../emagazine-submit.php" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 border border-slate-100 text-slate-700 hover:text-teal-600 transition-all">
+                                    <i class="fas fa-paper-plane text-teal-500 text-base"></i>
+                                    <span class="text-sm font-semibold">Submit Magazine Form</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Pending Submissions -->
+                <div id="tab-pending" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Author</th>
+                                        <th class="px-6 py-4">Title & Details</th>
+                                        <th class="px-6 py-4">Type</th>
+                                        <th class="px-6 py-4 text-center">Manuscript</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php 
+                                    $pending = array_filter($submissions, function($s) { return $s['status'] === 'pending'; });
+                                    if (empty($pending)): 
+                                    ?>
+                                        <tr>
+                                            <td colspan="5" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-inbox text-3xl mb-3 block text-slate-300"></i>
+                                                No pending submissions found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($pending as $sub): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5">
+                                                <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($sub['first_name'] . ' ' . $sub['last_name']); ?></div>
+                                                <a href="mailto:<?php echo htmlspecialchars($sub['email']); ?>" class="text-xs text-slate-400 hover:text-emerald-600 transition-colors"><?php echo htmlspecialchars($sub['email']); ?></a>
+                                            </td>
+                                            <td class="px-6 py-5 max-w-md">
+                                                <div class="font-medium text-slate-800 line-clamp-2"><?php echo htmlspecialchars($sub['title']); ?></div>
+                                                <div class="text-xs text-slate-400 mt-1">Submitted: <?php echo date('M d, Y h:i A', $sub['submitted_at']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold <?php echo $sub['type'] === 'journal' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-teal-50 text-teal-700 border border-teal-100'; ?>">
+                                                    <?php echo $sub['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                <a href="../<?php echo htmlspecialchars($sub['file_path']); ?>" download class="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-800 font-bold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition-all">
+                                                    <i class="fas fa-file-download"></i> Doc/Word
+                                                </a>
+                                            </td>
+                                            <td class="px-8 py-5 text-right space-x-2 whitespace-nowrap">
+                                                <a href="publish.php?id=<?php echo htmlspecialchars($sub['id']); ?>" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-sm transition-all hover:shadow-lg inline-block">
+                                                    <i class="fas fa-check-circle mr-1"></i> Publish
+                                                </a>
+                                                <a href="dashboard.php?action=delete_submission&id=<?php echo htmlspecialchars($sub['id']); ?>" onclick="return confirm('Are you sure you want to delete this submission?')" class="bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-xs font-bold px-3 py-2 rounded-xl transition-colors inline-block border border-slate-200 hover:border-red-100">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Published Catalog -->
+                <div id="tab-catalog" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Authors</th>
+                                        <th class="px-6 py-4">Article Metadata</th>
+                                        <th class="px-6 py-4">Type / Index</th>
+                                        <th class="px-6 py-4 text-center">PDF</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php if (empty($articles)): ?>
+                                        <tr>
+                                            <td colspan="5" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-newspaper text-3xl mb-3 block text-slate-300"></i>
+                                                No published articles found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($articles as $art): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5 font-semibold text-slate-800">
+                                                <div><?php echo htmlspecialchars($art['authors']); ?></div>
+                                                <div class="text-xs text-slate-400 font-normal"><?php echo htmlspecialchars($art['email']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5 max-w-md">
+                                                <div class="font-medium text-slate-800 line-clamp-2"><?php echo htmlspecialchars($art['title']); ?></div>
+                                                <div class="text-xs text-slate-400 mt-1">
+                                                    Vol. <?php echo htmlspecialchars($art['volume']); ?>, 
+                                                    Issue <?php echo htmlspecialchars($art['issue']); ?> 
+                                                    (<?php echo htmlspecialchars($art['year']); ?>)
+                                                    <?php if(!empty($art['doi'])): ?> | DOI: <?php echo htmlspecialchars($art['doi']); ?><?php endif; ?>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold <?php echo $art['type'] === 'journal' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-teal-50 text-teal-700 border border-teal-100'; ?>">
+                                                    <?php echo $art['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                <a href="../<?php echo htmlspecialchars($art['pdf_path']); ?>" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-800 font-bold bg-red-50 px-3 py-1.5 rounded-lg border border-red-100 hover:bg-red-100 transition-all">
+                                                    <i class="fas fa-file-pdf"></i> View PDF
+                                                </a>
+                                            </td>
+                                            <td class="px-8 py-5 text-right">
+                                                <a href="dashboard.php?action=unpublish&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Are you sure you want to unpublish this article? It will return to the pending list.')" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold px-4 py-2 border border-slate-200 rounded-xl transition-all shadow-sm">
+                                                    Unpublish
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Messages -->
+                <div id="tab-messages" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Sender</th>
+                                        <th class="px-6 py-4">Subject & Message</th>
+                                        <th class="px-6 py-4">Date</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php if (empty($messages)): ?>
+                                        <tr>
+                                            <td colspan="4" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-envelope text-3xl mb-3 block text-slate-300"></i>
+                                                No contact messages found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($messages as $m): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5 font-semibold text-slate-800">
+                                                <div><?php echo htmlspecialchars($m['name']); ?></div>
+                                                <a href="mailto:<?php echo htmlspecialchars($m['email']); ?>" class="text-xs text-slate-400 hover:text-emerald-600 transition-colors"><?php echo htmlspecialchars($m['email']); ?></a>
+                                            </td>
+                                            <td class="px-6 py-5 max-w-lg">
+                                                <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($m['subject']); ?></div>
+                                                <div class="text-xs text-slate-500 mt-1 whitespace-pre-line leading-relaxed"><?php echo htmlspecialchars($m['message']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5 whitespace-nowrap text-xs text-slate-400">
+                                                <?php echo date('M d, Y h:i A', $m['submitted_at']); ?>
+                                            </td>
+                                            <td class="px-8 py-5 text-right">
+                                                <a href="dashboard.php?action=delete_message&id=<?php echo htmlspecialchars($m['id']); ?>" onclick="return confirm('Are you sure you want to delete this message?')" class="bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-xs font-bold px-3 py-2 rounded-xl transition-colors inline-block border border-slate-200 hover:border-red-100">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </main>
+    </div>
+
+    <!-- Client-side Tab Switcher Script -->
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.getElementById('tab-overview').classList.add('hidden');
+            document.getElementById('tab-pending').classList.add('hidden');
+            document.getElementById('tab-catalog').classList.add('hidden');
+            document.getElementById('tab-messages').classList.add('hidden');
+            
+            // Deactivate all button active styles
+            const btns = ['overview', 'pending', 'catalog', 'messages'];
+            btns.forEach(btn => {
+                const el = document.getElementById('tab-btn-' + btn);
+                if (el) {
+                    el.classList.remove('bg-slate-800', 'text-white');
+                    el.classList.add('text-slate-400');
+                }
+            });
+            
+            // Show active tab
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            
+            // Activate active button style
+            const activeEl = document.getElementById('tab-btn-' + tabId);
+            if (activeEl) {
+                activeEl.classList.remove('text-slate-400');
+                activeEl.classList.add('bg-slate-800', 'text-white');
+            }
+            
+            // Update top header page title
+            const titles = {
+                overview: 'Dashboard Overview',
+                pending: 'Pending Submissions',
+                catalog: 'Published Catalog',
+                messages: 'Contact Messages'
+            };
+            document.getElementById('page-title').innerText = titles[tabId];
+            
+            // Persist tab state across dashboard reloads
+            localStorage.setItem('admin_active_tab', tabId);
+        }
+
+        // Initialize active tab on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeTab = localStorage.getItem('admin_active_tab') || 'overview';
+            showTab(activeTab);
+        });
+    </script>
+
 </body>
 </html>

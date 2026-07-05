@@ -112,85 +112,146 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         h1, h2, h3, button, .font-title { font-family: 'Outfit', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 min-h-screen overflow-hidden">
 
-    <!-- Header -->
-    <header class="bg-slate-900 text-white shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <a href="dashboard.php" class="text-slate-400 hover:text-white transition-colors mr-2"><i class="fas fa-arrow-left text-lg"></i></a>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight uppercase font-title">Publish Submission</h1>
-                    <p class="text-xs text-slate-400">Complete Metadata & PDF Upload</p>
+    <div class="flex h-screen overflow-hidden bg-slate-50">
+        <!-- Sidebar -->
+        <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 font-['Outfit'] border-r border-slate-800">
+            <div>
+                <!-- Header Logo -->
+                <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+                    <div class="bg-emerald-500 p-2.5 rounded-xl text-white shadow-md shadow-emerald-500/20">
+                        <i class="fas fa-user-shield text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-white text-base leading-tight">IJARI Admin</h1>
+                        <p class="text-xs text-slate-500">Publication Control Center</p>
+                    </div>
                 </div>
-            </div>
-            <a href="dashboard.php" class="text-sm text-slate-400 hover:text-white transition-colors">Cancel</a>
-        </div>
-    </header>
-
-    <!-- Main -->
-    <main class="flex-grow container mx-auto px-6 py-10 max-w-3xl">
-        
-        <?php if (!empty($error)): ?>
-            <div class="bg-red-500/15 border border-red-500/30 text-red-800 p-4 rounded-xl mb-6 text-sm flex gap-3 items-center">
-                <i class="fas fa-exclamation-circle text-red-500"></i>
-                <span><?php echo htmlspecialchars($error); ?></span>
-            </div>
-        <?php endif; ?>
-
-        <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100">
-            <form action="" method="POST" enctype="multipart/form-data" class="space-y-8">
                 
-                <div class="space-y-2">
-                    <label class="block text-sm font-semibold text-slate-700">Article Title *</label>
-                    <input type="text" name="title" required value="<?php echo htmlspecialchars($submission['title']); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
-                </div>
-
-                <div class="space-y-2">
-                    <label class="block text-sm font-semibold text-slate-700">Authors (Comma-separated) *</label>
-                    <input type="text" name="authors" required value="<?php echo htmlspecialchars($submission['first_name'] . ' ' . $submission['last_name']); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="e.g. Dr. Praveen Kumar, Dr. Abhishek Raj">
-                </div>
-
-                <div class="space-y-2">
-                    <label class="block text-sm font-semibold text-slate-700 font-title">Abstract / Summary *</label>
-                    <textarea name="abstract" required rows="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"><?php echo htmlspecialchars($submission['abstract']); ?></textarea>
-                </div>
-
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-slate-700">Volume *</label>
-                        <input type="text" name="volume" required value="1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center">
+                <!-- Navigation Links -->
+                <nav class="p-4 space-y-1.5">
+                    <button onclick="goToTab('overview')" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-chart-pie w-5 text-base"></i> Dashboard Overview
+                    </button>
+                    <button onclick="goToTab('pending')" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl bg-slate-800 text-white transition-all text-sm font-semibold">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-hourglass-start w-5 text-base"></i> Pending Review
+                        </div>
+                    </button>
+                    <button onclick="goToTab('catalog')" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <i class="fas fa-book-open w-5 text-base"></i> Published Catalog
+                    </button>
+                    <div class="pt-4 mt-4 border-t border-slate-800">
+                        <a href="../index.php" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                            <i class="fas fa-external-link-alt w-5 text-base"></i> View Live Site
+                        </a>
                     </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-slate-700">Issue *</label>
-                        <input type="text" name="issue" required value="1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center font-semibold">
+                </nav>
+            </div>
+            
+            <!-- Profile slot at bottom -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950/20">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">System Admin</div>
+                            <div class="text-xs text-slate-500">Active Session</div>
+                        </div>
                     </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-slate-700">Year *</label>
-                        <input type="text" name="year" required value="<?php echo date('Y'); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center">
+                    <a href="logout.php" class="text-slate-500 hover:text-red-500 transition-colors py-1 px-2 rounded-lg hover:bg-slate-800" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-grow flex flex-col h-screen overflow-hidden">
+            <!-- Top Header bar -->
+            <header class="bg-white border-b border-slate-100 py-5 px-8 flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-3">
+                    <a href="dashboard.php" class="text-slate-400 hover:text-slate-950 transition-colors mr-1"><i class="fas fa-arrow-left text-lg"></i></a>
+                    <h2 class="font-bold text-xl text-slate-900 font-['Outfit']">Publish Submission</h2>
+                </div>
+                <a href="dashboard.php" class="text-sm text-slate-400 hover:text-slate-800 transition-colors">Cancel</a>
+            </header>
+
+            <!-- Scrollable Content Pane -->
+            <div class="flex-grow overflow-y-auto p-8">
+                
+                <?php if (!empty($error)): ?>
+                    <div class="bg-red-500/15 border border-red-500/30 text-red-800 p-4 rounded-xl mb-6 text-sm flex gap-3 items-center max-w-3xl">
+                        <i class="fas fa-exclamation-circle text-red-500"></i>
+                        <span><?php echo htmlspecialchars($error); ?></span>
                     </div>
+                <?php endif; ?>
+
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 max-w-3xl">
+                    <form action="" method="POST" enctype="multipart/form-data" class="space-y-8">
+                        
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700">Article Title *</label>
+                            <input type="text" name="title" required value="<?php echo htmlspecialchars($submission['title']); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700">Authors (Comma-separated) *</label>
+                            <input type="text" name="authors" required value="<?php echo htmlspecialchars($submission['first_name'] . ' ' . $submission['last_name']); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="e.g. Dr. Praveen Kumar, Dr. Abhishek Raj">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700 font-title">Abstract / Summary *</label>
+                            <textarea name="abstract" required rows="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"><?php echo htmlspecialchars($submission['abstract']); ?></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">Volume *</label>
+                                <input type="text" name="volume" required value="1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">Issue *</label>
+                                <input type="text" name="issue" required value="1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center font-semibold">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-700">Year *</label>
+                                <input type="text" name="year" required value="<?php echo date('Y'); ?>" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-center">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700">DOI (Digital Object Identifier) <span class="text-slate-400 font-normal">(Optional)</span></label>
+                            <input type="text" name="doi" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="e.g. 10.1234/ijari.2026.01">
+                        </div>
+
+                        <div class="space-y-2 pt-2">
+                            <label class="block text-sm font-semibold text-slate-700 mb-3">Upload Formatted Article PDF *</label>
+                            <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center hover:bg-slate-50 hover:border-emerald-300 transition-colors cursor-pointer relative">
+                                <input type="file" name="pdf_file" required accept=".pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                <i class="fas fa-file-pdf text-4xl text-red-500 mb-3 animate-pulse"></i>
+                                <p class="text-slate-700 font-semibold mb-1">Click to select PDF File</p>
+                                <p class="text-xs text-slate-400">PDF copy will be served to the readers.</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-lg flex items-center justify-center gap-2">
+                            Confirm & Publish Article <i class="fas fa-check-double text-sm"></i>
+                        </button>
+                    </form>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="block text-sm font-semibold text-slate-700">DOI (Digital Object Identifier) <span class="text-slate-400 font-normal">(Optional)</span></label>
-                    <input type="text" name="doi" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="e.g. 10.1234/ijari.2026.01">
-                </div>
-
-                <div class="space-y-2 pt-2">
-                    <label class="block text-sm font-semibold text-slate-700 mb-3">Upload Formatted Article PDF *</label>
-                    <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center hover:bg-slate-50 hover:border-emerald-300 transition-colors cursor-pointer relative">
-                        <input type="file" name="pdf_file" required accept=".pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                        <i class="fas fa-file-pdf text-4xl text-red-500 mb-3 animate-pulse"></i>
-                        <p class="text-slate-700 font-semibold mb-1">Click to select PDF File</p>
-                        <p class="text-xs text-slate-400">PDF copy will be served to the readers.</p>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-lg flex items-center justify-center gap-2">
-                    Confirm & Publish Article <i class="fas fa-check-double text-sm"></i>
-                </button>
-            </form>
+            </div>
         </div>
-    </main>
+    </div>
+
+    <script>
+        function goToTab(tabId) {
+            localStorage.setItem('admin_active_tab', tabId);
+            window.location.href = 'dashboard.php';
+        }
+    </script>
+
 </body>
 </html>
