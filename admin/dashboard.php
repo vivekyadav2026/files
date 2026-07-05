@@ -5,6 +5,7 @@ check_auth();
 $submissionsFile = '../data/submissions.json';
 $articlesFile = '../data/articles.json';
 $messagesFile = '../data/messages.json';
+$reviewersFile = '../data/reviewers.json';
 
 // Helper to read JSON
 function read_json($file) {
@@ -21,8 +22,9 @@ function write_json($file, $data) {
 $submissions = read_json($submissionsFile);
 $articles = read_json($articlesFile);
 $messages = read_json($messagesFile);
+$reviewers = read_json($reviewersFile);
 
-// Handle Actions (Delete/Unpublish/Delete Message/Change Password)
+// Handle Actions (Delete/Unpublish/Delete Message/Change Password/Reviewer Approval)
 $action = $_GET['action'] ?? '';
 $id = $_GET['id'] ?? '';
 
@@ -64,6 +66,39 @@ if ($action && $id) {
         });
         write_json($messagesFile, array_values($messages));
         header('Location: dashboard.php?msg=Message deleted successfully');
+        exit;
+    }
+
+    if ($action === 'approve_reviewer') {
+        foreach ($reviewers as &$rev) {
+            if ($rev['id'] === $id) {
+                $rev['status'] = 'approved';
+                break;
+            }
+        }
+        write_json($reviewersFile, $reviewers);
+        header('Location: dashboard.php?msg=Reviewer application approved successfully');
+        exit;
+    }
+
+    if ($action === 'decline_reviewer') {
+        foreach ($reviewers as &$rev) {
+            if ($rev['id'] === $id) {
+                $rev['status'] = 'declined';
+                break;
+            }
+        }
+        write_json($reviewersFile, $reviewers);
+        header('Location: dashboard.php?msg=Reviewer application declined successfully');
+        exit;
+    }
+
+    if ($action === 'delete_reviewer') {
+        $reviewers = array_filter($reviewers, function($r) use ($id) {
+            return $r['id'] !== $id;
+        });
+        write_json($reviewersFile, array_values($reviewers));
+        header('Location: dashboard.php?msg=Reviewer application deleted successfully');
         exit;
     }
 }
@@ -153,6 +188,17 @@ $msg = $_GET['msg'] ?? '';
                     <button onclick="showTab('catalog')" id="tab-btn-catalog" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
                         <i class="fas fa-book-open w-5 text-base"></i> Published Catalog
                     </button>
+                    <button onclick="showTab('reviewers')" id="tab-btn-reviewers" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-user-plus w-5 text-base"></i> Reviewer Apps
+                        </div>
+                        <?php 
+                        $pendingRevCount = count(array_filter($reviewers, function($r) { return $r['status'] === 'pending'; }));
+                        if ($pendingRevCount > 0): 
+                        ?>
+                            <span class="bg-blue-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $pendingRevCount; ?></span>
+                        <?php endif; ?>
+                    </button>
                     <button onclick="showTab('messages')" id="tab-btn-messages" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
                         <div class="flex items-center gap-3">
                             <i class="fas fa-envelope-open-text w-5 text-base"></i> Contact Messages
@@ -221,27 +267,34 @@ $msg = $_GET['msg'] ?? '';
                 <!-- Tab 1: Overview -->
                 <div id="tab-overview" class="space-y-10 max-w-5xl">
                     <!-- Stats Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
                             <div class="w-12 h-12 bg-amber-50 rounded-xl text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-hourglass-start"></i></div>
                             <div>
-                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Pending Submissions</div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Submissions</div>
                                 <div class="text-3xl font-bold text-slate-800 mt-1"><?php echo $pendingCount; ?></div>
                             </div>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
                             <div class="w-12 h-12 bg-emerald-50 rounded-xl text-emerald-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-file-invoice"></i></div>
                             <div>
-                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Published Papers</div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Published</div>
                                 <div class="text-3xl font-bold text-slate-800 mt-1">
                                     <?php echo count(array_filter($articles, function($a) { return $a['type'] === 'journal'; })); ?>
                                 </div>
                             </div>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl text-blue-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-user-plus"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Reviewer Apps</div>
+                                <div class="text-3xl font-bold text-slate-800 mt-1"><?php echo $pendingRevCount; ?></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
                             <div class="w-12 h-12 bg-teal-50 rounded-xl text-teal-600 flex items-center justify-center text-xl shrink-0"><i class="fas fa-envelope-open-text"></i></div>
                             <div>
-                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contact Messages</div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Messages</div>
                                 <div class="text-3xl font-bold text-slate-800 mt-1"><?php echo $msgCount; ?></div>
                             </div>
                         </div>
@@ -255,9 +308,12 @@ $msg = $_GET['msg'] ?? '';
                                 <h3 class="text-2xl font-bold mb-3 font-['Outfit']">Welcome Back!</h3>
                                 <p class="text-slate-400 text-sm leading-relaxed mb-6">You are logged into the IJARI control center. From here, you can process incoming submissions and manage the active publishing catalog dynamically.</p>
                             </div>
-                            <div class="flex gap-4 border-t border-slate-700/50 pt-6">
+                            <div class="flex flex-wrap gap-3 border-t border-slate-700/50 pt-6">
                                 <button onclick="showTab('pending')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md">
                                     Review Submissions
+                                </button>
+                                <button onclick="showTab('reviewers')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md">
+                                    Reviewer Requests
                                 </button>
                                 <button onclick="showTab('messages')" class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all">
                                     Read Messages
@@ -402,6 +458,74 @@ $msg = $_GET['msg'] ?? '';
                     </div>
                 </div>
 
+                <!-- Tab 6: Reviewer Applications -->
+                <div id="tab-reviewers" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Applicant</th>
+                                        <th class="px-6 py-4">Affiliation & Expertise</th>
+                                        <th class="px-6 py-4">Status</th>
+                                        <th class="px-6 py-4 text-center">CV / Resume</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php if (empty($reviewers)): ?>
+                                        <tr>
+                                            <td colspan="5" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-user-plus text-3xl mb-3 block text-slate-300"></i>
+                                                No reviewer applications found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($reviewers as $rev): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5">
+                                                <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($rev['first_name'] . ' ' . $rev['last_name']); ?></div>
+                                                <a href="mailto:<?php echo htmlspecialchars($rev['email']); ?>" class="text-xs text-slate-400 hover:text-emerald-600 transition-colors"><?php echo htmlspecialchars($rev['email']); ?></a>
+                                                <div class="text-[10px] text-slate-400 mt-1"><?php echo date('M d, Y h:i A', $rev['submitted_at']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5 max-w-md">
+                                                <div class="font-medium text-slate-800"><?php echo htmlspecialchars($rev['affiliation']); ?></div>
+                                                <div class="text-xs text-emerald-600 font-bold mt-1 uppercase tracking-wide"><i class="fas fa-tags text-[10px] mr-1"></i><?php echo htmlspecialchars($rev['expertise']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <?php if ($rev['status'] === 'pending'): ?>
+                                                    <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">Pending Review</span>
+                                                <?php elseif ($rev['status'] === 'approved'): ?>
+                                                    <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">Approved</span>
+                                                <?php else: ?>
+                                                    <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-100">Declined</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                <?php if(!empty($rev['cv_path'])): ?>
+                                                    <a href="../<?php echo htmlspecialchars($rev['cv_path']); ?>" download class="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-800 font-bold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition-all">
+                                                        <i class="fas fa-file-pdf"></i> Download CV
+                                                    </a>
+                                                <?php else: ?>
+                                                    <span class="text-slate-400 text-xs">No CV</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="px-8 py-5 text-right space-x-1 whitespace-nowrap">
+                                                <?php if ($rev['status'] === 'pending'): ?>
+                                                    <a href="dashboard.php?action=approve_reviewer&id=<?php echo htmlspecialchars($rev['id']); ?>" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm">Approve</a>
+                                                    <a href="dashboard.php?action=decline_reviewer&id=<?php echo htmlspecialchars($rev['id']); ?>" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm">Decline</a>
+                                                <?php endif; ?>
+                                                <a href="dashboard.php?action=delete_reviewer&id=<?php echo htmlspecialchars($rev['id']); ?>" onclick="return confirm('Are you sure you want to delete this reviewer application?')" class="bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-xs font-bold px-3 py-2 rounded-xl transition-colors inline-block border border-slate-200 hover:border-red-100">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Tab 4: Messages -->
                 <div id="tab-messages" class="space-y-6 max-w-5xl hidden">
                     <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
@@ -515,11 +639,12 @@ $msg = $_GET['msg'] ?? '';
             document.getElementById('tab-overview').classList.add('hidden');
             document.getElementById('tab-pending').classList.add('hidden');
             document.getElementById('tab-catalog').classList.add('hidden');
+            document.getElementById('tab-reviewers').classList.add('hidden');
             document.getElementById('tab-messages').classList.add('hidden');
             document.getElementById('tab-settings').classList.add('hidden');
             
             // Deactivate all button active styles
-            const btns = ['overview', 'pending', 'catalog', 'messages', 'settings'];
+            const btns = ['overview', 'pending', 'catalog', 'reviewers', 'messages', 'settings'];
             btns.forEach(btn => {
                 const el = document.getElementById('tab-btn-' + btn);
                 if (el) {
@@ -543,6 +668,7 @@ $msg = $_GET['msg'] ?? '';
                 overview: 'Dashboard Overview',
                 pending: 'Pending Submissions',
                 catalog: 'Published Catalog',
+                reviewers: 'Reviewer Applications',
                 messages: 'Contact Messages',
                 settings: 'Change Password'
             };
