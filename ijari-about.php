@@ -67,6 +67,11 @@
                         <p class="text-slate-400 text-sm mb-4">All articles published in IJARI are fully open access — freely available to read, download, and share without restriction.</p>
                         <a href="ijari-submit.php" class="inline-block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold py-3 rounded-lg transition-colors">Submit Manuscript</a>
                     </div>
+
+                    <!-- Journal Flyer Showcase -->
+                    <div class="bg-white rounded-3xl p-4 shadow-sm border border-slate-100 overflow-hidden">
+                        <img src="assets/ijari_flyer.png" alt="IJARI Journal Cover Flyer" class="w-full h-auto rounded-2xl border border-slate-50 shadow-inner">
+                    </div>
                 </div>
             </div>
         </div>

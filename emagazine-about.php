@@ -23,29 +23,46 @@
     </div>
     
         
-        <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
-                <p class="lead"><strong>Farm Science Today</strong> is an open access, multidisciplinary, monthly magazine-cum-e-Newsletter dedicated to presenting scientific knowledge in a simple, accessible style for progressive farmers, students, researchers, and all those interested in applying science to everyday challenges in Indian agriculture.</p>
-                
-                <p>Alongside research-based articles, the magazine features book reviews, photo features, interviews, farmer success stories, and a dedicated editorial page, making it both a scientific resource and a practical companion for the farming community.</p>
-                
-                <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Special Issues</h3>
-                <p>The e-magazine brings out two special issues each year — one in June, and another on a significant occasion relevant to the agricultural calendar. In addition, thematic issues are periodically released, focusing on topical and emerging subjects of interest to the farming and scientific community.</p>
-                
-                <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Rapid Publication</h3>
-                <p>All submitted articles undergo review and evaluation by a panel of subject-matter experts. Upon acceptance, articles are published within <strong>7 business days</strong>, following the completion of all publication formalities and payment of nominal processing charges (₹200).</p>
+        <div class="container mx-auto px-6 py-10 md:py-16 max-w-5xl">
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-10 prose prose-emerald prose-lg max-w-none text-slate-600">
+                        <p class="lead"><strong>Farm Science Today</strong> is an open access, multidisciplinary, monthly magazine-cum-e-Newsletter dedicated to presenting scientific knowledge in a simple, accessible style for progressive farmers, students, researchers, and all those interested in applying science to everyday challenges in Indian agriculture.</p>
+                        
+                        <p>Alongside research-based articles, the magazine features book reviews, photo features, interviews, farmer success stories, and a dedicated editorial page, making it both a scientific resource and a practical companion for the farming community.</p>
+                        
+                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Special Issues</h3>
+                        <p>The e-magazine brings out two special issues each year — one in June, and another on a significant occasion relevant to the agricultural calendar. In addition, thematic issues are periodically released, focusing on topical and emerging subjects of interest to the farming and scientific community.</p>
+                        
+                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Rapid Publication</h3>
+                        <p>All submitted articles undergo review and evaluation by a panel of subject-matter experts. Upon acceptance, articles are published within <strong>7 business days</strong>, following the completion of all publication formalities and payment of nominal processing charges (₹200).</p>
 
-                <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Themes Covered</h3>
-                <div class="not-prose flex flex-wrap gap-2 mt-4">
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Agriculture</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Horticulture</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Agronomy</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Plant Breeding</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Soil Science</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Plant Pathology</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Entomology</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Biotechnology</span>
-                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-md text-sm font-medium">Forestry</span>
+                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Themes Covered</h3>
+                        <div class="not-prose flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Agriculture</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Horticulture</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Agronomy</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Plant Breeding</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Soil Science</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Plant Pathology</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Entomology</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Biotechnology</span>
+                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Forestry</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100">
+                        <div class="w-12 h-12 bg-white text-emerald-600 rounded-full flex items-center justify-center text-xl shadow-sm mb-4"><i class="fas fa-calendar-alt"></i></div>
+                        <h4 class="font-bold text-lg text-emerald-900 mb-2 font-['Outfit']">Publication Frequency</h4>
+                        <p class="text-emerald-800/80 text-sm">Farm Science Today e-Magazine is published <strong>monthly</strong>.</p>
+                    </div>
+
+                    <!-- e-Magazine Flyer Showcase -->
+                    <div class="bg-white rounded-3xl p-4 shadow-sm border border-slate-100 overflow-hidden">
+                        <img src="assets/farm_science_flyer.png" alt="Farm Science Today Cover Flyer" class="w-full h-auto rounded-2xl border border-slate-50 shadow-inner">
+                    </div>
                 </div>
             </div>
         </div>
