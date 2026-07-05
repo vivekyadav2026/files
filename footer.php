@@ -13,7 +13,7 @@
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 relative z-10">
             <div class="md:col-span-4">
                 <a href="index.php" class="flex items-center gap-4 mb-6">
-                    <div class="bg-white p-2 rounded-xl">
+                    <div class="bg-white p-2 rounded-xl border-2 border-emerald-400 shadow-md">
                         <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto">
                     </div>
                     <h2 class="font-bold text-white text-2xl tracking-wide font-['Outfit']">IJARI</h2>

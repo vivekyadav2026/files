@@ -57,9 +57,10 @@
 
     <!-- Header -->
     <header class="sticky top-0 z-50 glass-nav shadow-sm">
+        <div class="h-1 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 w-full"></div>
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.php" class="flex items-center gap-4 group">
-                <div class="relative w-14 h-14 rounded-xl overflow-hidden bg-white shadow-sm border border-slate-100 flex items-center justify-center transition-transform group-hover:scale-105">
+                <div class="relative w-14 h-14 rounded-xl overflow-hidden bg-white shadow-md border-2 border-emerald-400 flex items-center justify-center transition-transform group-hover:scale-105 group-hover:border-emerald-500">
                     <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto object-contain fallback-icon">
                 </div>
                 <div>
