@@ -20,7 +20,79 @@
         "title": "Five Easy Steps to Transition to Organic Farming",
         "abstract": "Popular\/Technical article for e-Magazine.",
         "file_path": "uploads\/sample_article.docx",
-        "status": "pending",
+        "status": "deleted",
         "submitted_at": 1783247500
+    },
+    {
+        "id": "sub_id_6a552cc78bb150.77554307",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "titlr",
+        "abstract": "sdfds f",
+        "file_path": "uploads\/sub_6a552cc78b7657.35361817.docx",
+        "status": "deleted",
+        "submitted_at": 1783966919
+    },
+    {
+        "id": "sub_id_6a552cec706f61.36765827",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "titlr",
+        "abstract": "sdfds f",
+        "file_path": "uploads\/sub_6a552cec7054a4.44322595.docx",
+        "status": "deleted",
+        "submitted_at": 1783966956
+    },
+    {
+        "id": "sub_id_6a552e06cefeb3.47795288",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "dasd",
+        "abstract": "dsadasdas",
+        "file_path": "uploads\/sub_6a552e06ceda08.76141264.docx",
+        "status": "deleted",
+        "submitted_at": 1783967238
+    },
+    {
+        "id": "sub_id_6a552e0c6e7236.16647425",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "dasd",
+        "abstract": "dsadasdas",
+        "file_path": "uploads\/sub_6a552e0c6e4eb1.01733424.docx",
+        "status": "deleted",
+        "submitted_at": 1783967244
+    },
+    {
+        "id": "sub_id_6a552e0dda5aa0.24664967",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "dasd",
+        "abstract": "dsadasdas",
+        "file_path": "uploads\/sub_6a552e0dda1770.11180960.docx",
+        "status": "deleted",
+        "submitted_at": 1783967245
+    },
+    {
+        "id": "sub_id_6a5530c4552be2.42512615",
+        "type": "journal",
+        "first_name": "Ranjeet",
+        "last_name": "maurya",
+        "email": "ranjeetmaurya2033@gmail.com",
+        "title": "sd",
+        "abstract": "as",
+        "file_path": "uploads\/sub_6a5530c4550624.47560670.docx",
+        "status": "deleted",
+        "submitted_at": 1783967940
     }
 ]

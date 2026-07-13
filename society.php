@@ -1,5 +1,8 @@
 <?php
 $msg = '';
+  if (isset($_GET['success']) && $_GET['success'] == 1) {
+      $msg = 'Form submitted successfully! We will get back to you shortly.';
+  }
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
@@ -35,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (!file_exists('data')) { mkdir('data', 0777, true); }
         file_put_contents($membershipsFile, json_encode($memberships, JSON_PRETTY_PRINT));
-        $msg = 'Your membership application has been submitted successfully! We will review your payment and activate your membership shortly.';
+        header('Location: ' . basename($_SERVER['PHP_SELF']) . '?success=1'); exit;
     }
 }
 
@@ -92,6 +95,42 @@ include "header.php";
                             <li>To organize national and international conferences, seminars, and workshops.</li>
                             <li>To confer awards and fellowships recognizing outstanding contributions to agricultural sciences.</li>
                         </ul>
+
+                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10 mb-4">Membership Fees</h3>
+                        <div class="overflow-x-auto mb-10">
+                            <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-lg">
+                                <thead>
+                                    <tr class="bg-emerald-800 text-white text-sm uppercase tracking-wide">
+                                        <th class="py-4 px-6 font-semibold">Membership Category</th>
+                                        <th class="py-4 px-6 font-semibold">Indian (Rs.)</th>
+                                        <th class="py-4 px-6 font-semibold">Foreign ($)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-slate-900 text-slate-300">
+                                    <tr class="border-b border-slate-700/50 hover:bg-slate-800 transition-colors">
+                                        <td class="py-4 px-6 font-medium text-white">Lifetime</td>
+                                        <td class="py-4 px-6">2000</td>
+                                        <td class="py-4 px-6">100</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700/50 hover:bg-slate-800 transition-colors bg-slate-800/30">
+                                        <td class="py-4 px-6 font-medium text-white">Annual</td>
+                                        <td class="py-4 px-6">500</td>
+                                        <td class="py-4 px-6">20</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700/50 hover:bg-slate-800 transition-colors">
+                                        <td class="py-4 px-6 font-medium text-white">Student</td>
+                                        <td class="py-4 px-6">300</td>
+                                        <td class="py-4 px-6">15</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-800 transition-colors bg-slate-800/30">
+                                        <td class="py-4 px-6 font-medium text-white">Institutional</td>
+                                        <td class="py-4 px-6">5000</td>
+                                        <td class="py-4 px-6">200</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
                 </div>
 

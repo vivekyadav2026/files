@@ -1,5 +1,8 @@
 <?php
 $msg = '';
+  if (isset($_GET['success']) && $_GET['success'] == 1) {
+      $msg = 'Form submitted successfully! We will get back to you shortly.';
+  }
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = trim($_POST['first_name'] ?? '');
@@ -46,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'submitted_at' => time()
                 ];
                 file_put_contents($submissionsFile, json_encode($submissions, JSON_PRETTY_PRINT));
-                $msg = 'Manuscript submitted successfully! The editorial board will review it and contact you shortly.';
+                header('Location: ' . basename($_SERVER['PHP_SELF']) . '?success=1'); exit;
             } else {
                 $error = 'Failed to save the uploaded file. Please try again.';
             }

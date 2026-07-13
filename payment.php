@@ -1,5 +1,8 @@
 <?php
 $msg = '';
+  if (isset($_GET['success']) && $_GET['success'] == 1) {
+      $msg = 'Form submitted successfully! We will get back to you shortly.';
+  }
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $payer_name = trim($_POST['payer_name'] ?? '');

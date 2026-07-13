@@ -1,5 +1,8 @@
 <?php
   $msg = '';
+  if (isset($_GET['success']) && $_GET['success'] == 1) {
+      $msg = 'Form submitted successfully! We will get back to you shortly.';
+  }
   $error = '';
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $authorName = trim($_POST['author_name'] ?? '');
@@ -48,7 +51,7 @@
                   ];
                   if (!file_exists('data')) { mkdir('data', 0777, true); }
                   file_put_contents($submissionsFile, json_encode($submissions, JSON_PRETTY_PRINT));
-                  $msg = 'Article submitted successfully! The editorial team will review it and publish it in the upcoming issue.';
+                  header('Location: ' . basename($_SERVER['PHP_SELF']) . '?success=1'); exit;
               } else {
                   $error = 'Failed to save the uploaded file. Please try again.';
               }

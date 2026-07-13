@@ -46,13 +46,11 @@ if ($action && $id) {
     }
 
     if ($action === 'unpublish') {
-        // Remove from articles
         $articles = array_filter($articles, function($art) use ($id) {
             return $art['submission_id'] !== $id;
         });
         write_json($articlesFile, array_values($articles));
 
-        // Mark submission back to pending
         foreach ($submissions as &$sub) {
             if ($sub['id'] === $id) {
                 $sub['status'] = 'pending';
@@ -61,6 +59,30 @@ if ($action && $id) {
         }
         write_json($submissionsFile, $submissions);
         header('Location: dashboard.php?msg=Article unpublished and returned to submissions');
+        exit;
+    }
+
+    if ($action === 'move_to_archive') {
+        foreach ($articles as &$art) {
+            if ($art['submission_id'] === $id) {
+                $art['issue_status'] = 'archived';
+                break;
+            }
+        }
+        write_json($articlesFile, $articles);
+        header('Location: dashboard.php?msg=Article moved to Archives successfully');
+        exit;
+    }
+    
+    if ($action === 'move_to_current') {
+        foreach ($articles as &$art) {
+            if ($art['submission_id'] === $id) {
+                $art['issue_status'] = 'current';
+                break;
+            }
+        }
+        write_json($articlesFile, $articles);
+        header('Location: dashboard.php?msg=Article moved to Current Issue successfully');
         exit;
     }
 
@@ -463,17 +485,31 @@ $msg = $_GET['msg'] ?? '';
                                                 </div>
                                             </td>
                                             <td class="px-6 py-5">
-                                                <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold <?php echo $art['type'] === 'journal' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-teal-50 text-teal-700 border border-teal-100'; ?>">
-                                                    <?php echo $art['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
-                                                </span>
+                                                <div class="flex flex-col gap-2 items-start">
+                                                    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider <?php echo $art['type'] === 'journal' ? 'bg-emerald-100 text-emerald-800' : 'bg-teal-100 text-teal-800'; ?>">
+                                                        <?php echo $art['type'] === 'journal' ? 'Journal' : 'e-Magazine'; ?>
+                                                    </span>
+                                                    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider <?php echo (!isset($art['issue_status']) || $art['issue_status'] === 'current') ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'; ?>">
+                                                        <?php echo (!isset($art['issue_status']) || $art['issue_status'] === 'current') ? 'Current Issue' : 'Archived'; ?>
+                                                    </span>
+                                                </div>
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <a href="../<?php echo htmlspecialchars($art['pdf_path']); ?>" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-800 font-bold bg-red-50 px-3 py-1.5 rounded-lg border border-red-100 hover:bg-red-100 transition-all">
                                                     <i class="fas fa-file-pdf"></i> PDF
                                                 </a>
                                             </td>
-                                            <td class="px-8 py-5 text-right">
-                                                <a href="dashboard.php?action=unpublish&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Are you sure you want to unpublish this article? It will return to the pending list.')" class="bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold px-4 py-2 border border-slate-200 rounded-xl transition-all shadow-sm">
+                                            <td class="px-8 py-5 text-right space-x-2 whitespace-nowrap">
+                                                <?php if(!isset($art['issue_status']) || $art['issue_status'] === 'current'): ?>
+                                                    <a href="dashboard.php?action=move_to_archive&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Move to Archives?')" class="bg-amber-100 hover:bg-amber-200 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-lg border border-amber-200 transition-all shadow-sm">
+                                                        <i class="fas fa-archive"></i> Archive
+                                                    </a>
+                                                <?php else: ?>
+                                                    <a href="dashboard.php?action=move_to_current&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Move to Current Issue?')" class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-semibold px-3 py-1.5 rounded-lg border border-blue-200 transition-all shadow-sm">
+                                                        <i class="fas fa-level-up-alt"></i> Make Current
+                                                    </a>
+                                                <?php endif; ?>
+                                                <a href="dashboard.php?action=unpublish&id=<?php echo htmlspecialchars($art['submission_id']); ?>" onclick="return confirm('Are you sure you want to unpublish?')" class="bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 transition-all shadow-sm">
                                                     Unpublish
                                                 </a>
                                             </td>

@@ -1,5 +1,29 @@
-<?php include "header.php"; ?>
+<?php
+$articlesFile = 'data/articles.json';
+$articles = [];
+if (file_exists($articlesFile)) {
+    $articles = json_decode(file_get_contents($articlesFile), true);
+    if (!is_array($articles)) $articles = [];
+}
+$journalArticles = array_filter($articles, function($art) {
+    return $art['type'] === 'journal' && isset($art['issue_status']) && $art['issue_status'] === 'archived';
+});
+usort($journalArticles, function($a, $b) {
+    return $b['published_at'] <=> $a['published_at'];
+});
 
+// Group by volume and issue
+$groupedArchives = [];
+foreach ($journalArticles as $art) {
+    $key = "Vol. " . $art['volume'] . ", Issue " . $art['issue'] . " (" . $art['year'] . ")";
+    if (!isset($groupedArchives[$key])) {
+        $groupedArchives[$key] = [];
+    }
+    $groupedArchives[$key][] = $art;
+}
+
+include "header.php";
+?>
 <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
@@ -21,16 +45,42 @@
         </div>
     </div>
     
-        
-        <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl text-center">
-            <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden flex flex-col items-center">
-                <div class="w-24 h-24 bg-[#f7f9f4] rounded-full flex items-center justify-center mb-6">
-                    <i class="fas fa-folder-open text-4xl text-slate-300"></i>
+        <div class="container mx-auto px-6 py-10 md:py-16 max-w-5xl">
+            <?php if (empty($groupedArchives)): ?>
+                <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-[#f7f9f4] rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-folder-open text-4xl text-slate-300"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">No Past Issues Found</h2>
+                    <p class="text-slate-500 max-w-md text-lg">The archives will be populated once current issues are moved to past issues.</p>
                 </div>
-                <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">No Past Issues Found</h2>
-                <p class="text-slate-500 max-w-md text-lg">The archives will be populated once the first issue is fully processed and published.</p>
-                <a href="ijari-submit.php" class="mt-8 px-6 py-3 bg-emerald-50 text-emerald-700 font-medium rounded-xl hover:bg-emerald-100 transition-colors">Submit a Manuscript</a>
-            </div>
+            <?php else: ?>
+                <div class="space-y-12">
+                    <?php foreach ($groupedArchives as $issueName => $articlesGroup): ?>
+                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-6 font-['Outfit'] border-b border-slate-100 pb-4">
+                                <i class="fas fa-book text-emerald-500 mr-2"></i> <?php echo htmlspecialchars($issueName); ?>
+                            </h2>
+                            <div class="space-y-6">
+                                <?php foreach ($articlesGroup as $art): ?>
+                                    <div class="bg-[#f7f9f4]/50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2 font-['Outfit']"><?php echo htmlspecialchars($art['title']); ?></h3>
+                                        <p class="text-slate-600 font-medium text-sm mb-3">By: <?php echo htmlspecialchars($art['authors']); ?></p>
+                                        <?php if (!empty($art['doi'])): ?>
+                                            <p class="text-xs text-slate-400 mb-4">DOI: <a href="https://doi.org/<?php echo htmlspecialchars($art['doi']); ?>" target="_blank" class="hover:underline text-emerald-600"><?php echo htmlspecialchars($art['doi']); ?></a></p>
+                                        <?php endif; ?>
+                                        <div class="flex justify-between items-center mt-4">
+                                            <a href="<?php echo htmlspecialchars($art['pdf_path']); ?>" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded-xl transition-all shadow-sm text-sm">
+                                                <i class="fas fa-file-pdf"></i> Download PDF
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
-        
+
 <?php include "footer.php"; ?>

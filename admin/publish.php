@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'year' => $year,
                     'doi' => $doi,
                     'pdf_path' => 'uploads/articles/' . $destName,
+                    'issue_status' => 'current',
                     'published_at' => time()
                 ];
                 write_json($articlesFile, $articles);
