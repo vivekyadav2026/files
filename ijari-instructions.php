@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="Instructions to Author" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Instructions to Author" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -24,15 +24,15 @@
     
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
+            <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-12 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                 <p class="lead">Authors are requested to rigorously follow the guidelines below to ensure rapid and smooth processing of their manuscripts.</p>
                 
                 <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Manuscript Preparation</h3>
                 <ul class="not-prose space-y-3 mt-4">
-                    <li class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"><i class="fas fa-language text-emerald-500 w-5"></i> <strong>Language:</strong> English</li>
-                    <li class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"><i class="fas fa-file-word text-emerald-500 w-5"></i> <strong>Format:</strong> Microsoft Word (.doc or .docx)</li>
-                    <li class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"><i class="fas fa-font text-emerald-500 w-5"></i> <strong>Font:</strong> Times New Roman, 12 pt, 1.5-line spacing</li>
-                    <li class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"><i class="fas fa-list-ol text-emerald-500 w-5"></i> <strong>Structure:</strong> Title, Abstract, Keywords, Introduction, Materials & Methods, Results & Discussion, Conclusion, References.</li>
+                    <li class="flex items-center gap-3 p-3 bg-[#f7f9f4] rounded-lg border border-slate-100"><i class="fas fa-language text-emerald-500 w-5"></i> <strong>Language:</strong> English</li>
+                    <li class="flex items-center gap-3 p-3 bg-[#f7f9f4] rounded-lg border border-slate-100"><i class="fas fa-file-word text-emerald-500 w-5"></i> <strong>Format:</strong> Microsoft Word (.doc or .docx)</li>
+                    <li class="flex items-center gap-3 p-3 bg-[#f7f9f4] rounded-lg border border-slate-100"><i class="fas fa-font text-emerald-500 w-5"></i> <strong>Font:</strong> Times New Roman, 12 pt, 1.5-line spacing</li>
+                    <li class="flex items-center gap-3 p-3 bg-[#f7f9f4] rounded-lg border border-slate-100"><i class="fas fa-list-ol text-emerald-500 w-5"></i> <strong>Structure:</strong> Title, Abstract, Keywords, Introduction, Materials & Methods, Results & Discussion, Conclusion, References.</li>
                 </ul>
                 
                 <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Title Page</h3>

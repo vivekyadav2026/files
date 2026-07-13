@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="Publication Policies & Ethics" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Publication Policies & Ethics" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -24,14 +24,14 @@
     
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
+            <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-12 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                 <p class="lead text-lg">IJARI adheres to internationally recognized standards of publishing ethics, consistent with the Principles of Transparency and Best Practice in Scholarly Publishing set out by COPE, DOAJ, OASPA, and WAME.</p>
                 
                 <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10">Authorship</h3>
                 <p>Only individuals who have made substantial intellectual contributions to the research qualify as authors. Ghost or gift authorship is not permitted, and the corresponding author must confirm that all co-authors have approved the final submission.</p>
                 
                 <div class="grid md:grid-cols-2 gap-8 not-prose my-10">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-pen-nib text-emerald-500 text-xl"></i>
                             <h4 class="font-bold text-lg text-slate-900 font-['Outfit']">Duties of Authors</h4>
@@ -45,7 +45,7 @@
                         </ul>
                     </div>
                     
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-glasses text-emerald-500 text-xl"></i>
                             <h4 class="font-bold text-lg text-slate-900 font-['Outfit']">Duties of Reviewers</h4>

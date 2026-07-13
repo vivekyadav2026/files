@@ -33,12 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?><?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="Contact Us" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Contact Us" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <!-- Map Card -->
                     <div class="bg-white rounded-3xl p-4 shadow-sm border border-slate-100">
                         <div class="w-full h-48 rounded-2xl overflow-hidden border border-slate-100 relative">
-                            <div class="absolute inset-0 bg-slate-50 flex flex-col items-center justify-center text-slate-400 p-4 text-center">
+                            <div class="absolute inset-0 bg-[#f7f9f4] flex flex-col items-center justify-center text-slate-400 p-4 text-center">
                                 <i class="fas fa-map-marked-alt text-3xl text-emerald-500 mb-2"></i>
                                 <span class="text-xs font-semibold text-slate-700">Sasroli, Jhajjar, Haryana</span>
                                 <span class="text-[10px] text-slate-400 mt-1">Latitude: 28.5305, Longitude: 76.6712</span>
@@ -125,22 +125,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-sm font-semibold text-slate-700">Your Name *</label>
-                                    <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                                    <input type="text" name="name" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-sm font-semibold text-slate-700">Email Address *</label>
-                                    <input type="email" name="email" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                                    <input type="email" name="email" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
                                 </div>
                             </div>
                             
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">Subject *</label>
-                                <input type="text" name="subject" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
+                                <input type="text" name="subject" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-sm">
                             </div>
 
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">Message *</label>
-                                <textarea name="message" required rows="5" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none text-sm"></textarea>
+                                <textarea name="message" required rows="5" class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none text-sm"></textarea>
                             </div>
 
                             <button type="submit" class="w-full bg-emerald-600 text-white font-bold py-3.5 rounded-xl hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-600/20 text-sm flex items-center justify-center gap-2">

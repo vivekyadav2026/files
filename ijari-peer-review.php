@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="Peer Review Process" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Peer Review Process" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -24,7 +24,7 @@
     
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
+            <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-12 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                 <p class="lead">IJARI follows a rigorous <strong>double-blind peer review</strong> process to ensure the integrity, originality, and quality of published research.</p>
                 
                 <div class="not-prose my-12 relative">
@@ -34,7 +34,7 @@
                     <div class="space-y-8">
                         <div class="flex gap-6 relative">
                             <div class="w-16 h-16 rounded-full bg-emerald-100 border-4 border-white shadow-sm flex items-center justify-center text-emerald-600 text-xl shrink-0 z-10 hidden md:flex font-bold">1</div>
-                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex-grow">
+                            <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100 flex-grow">
                                 <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">Initial Screening</h4>
                                 <p class="text-slate-600 text-sm">All submissions undergo initial screening by the Editorial Office to confirm scope, originality (plagiarism check), and formatting compliance.</p>
                             </div>
@@ -42,7 +42,7 @@
                         
                         <div class="flex gap-6 relative">
                             <div class="w-16 h-16 rounded-full bg-emerald-100 border-4 border-white shadow-sm flex items-center justify-center text-emerald-600 text-xl shrink-0 z-10 hidden md:flex font-bold">2</div>
-                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex-grow">
+                            <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100 flex-grow">
                                 <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">Expert Review</h4>
                                 <p class="text-slate-600 text-sm">Manuscripts meeting the criteria proceed to review by at least two independent subject-matter experts from relevant fields.</p>
                             </div>
@@ -50,7 +50,7 @@
                         
                         <div class="flex gap-6 relative">
                             <div class="w-16 h-16 rounded-full bg-emerald-100 border-4 border-white shadow-sm flex items-center justify-center text-emerald-600 text-xl shrink-0 z-10 hidden md:flex font-bold">3</div>
-                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex-grow">
+                            <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100 flex-grow">
                                 <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">Double-Blind Confidentiality</h4>
                                 <p class="text-slate-600 text-sm">Reviewer identities and author identities remain strictly confidential to one another throughout the process to prevent bias.</p>
                             </div>

@@ -56,12 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?><?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="assets/banner_slide_2.png" alt="Submit Manuscript Online" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -112,16 +112,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">First Name <span class="text-red-500">*</span></label>
-                                <input type="text" name="first_name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+                                <input type="text" name="first_name" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
                             </div>
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">Last Name <span class="text-red-500">*</span></label>
-                                <input type="text" name="last_name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+                                <input type="text" name="last_name" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
                             </div>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-sm font-semibold text-slate-700">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" name="email" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+                            <input type="email" name="email" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
                         </div>
                     </div>
                     
@@ -135,12 +135,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="space-y-6">
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">Manuscript Title <span class="text-red-500">*</span></label>
-                                <input type="text" name="title" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
+                                <input type="text" name="title" required class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all">
                             </div>
                             
                             <div class="space-y-2">
                                 <label class="block text-sm font-semibold text-slate-700">Abstract <span class="text-slate-400 font-normal">(Max 250 words)</span> <span class="text-red-500">*</span></label>
-                                <textarea name="abstract" required rows="5" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
+                                <textarea name="abstract" required rows="5" class="w-full bg-[#f7f9f4] border border-slate-200 rounded-xl px-4 py-3 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
                             </div>
                             
                             <div class="space-y-2">
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <!-- Section 3 -->
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-200">
                         <label class="flex items-start gap-4 cursor-pointer group">
                             <div class="mt-1 relative flex items-center justify-center">
                                 <input type="checkbox" required class="peer appearance-none w-5 h-5 border-2 border-slate-300 rounded focus:ring-2 focus:ring-emerald-500 focus:ring-offset-1 checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer">

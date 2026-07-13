@@ -14,12 +14,12 @@ usort($magazineArticles, function($a, $b) {
 ?><?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_3.png" alt="Magazine Archives" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Magazine Archives" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -38,8 +38,8 @@ usort($magazineArticles, function($a, $b) {
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
             <?php if (empty($magazineArticles)): ?>
-                <div class="py-20 bg-white rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                    <div class="w-24 h-24 bg-slate-50 rounded-2xl rotate-3 flex items-center justify-center mb-6 border border-slate-200">
+                <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-[#f7f9f4] rounded-2xl rotate-3 flex items-center justify-center mb-6 border border-slate-200">
                         <i class="fas fa-box-open text-4xl text-slate-400"></i>
                     </div>
                     <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">Archive Empty</h2>

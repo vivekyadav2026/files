@@ -53,7 +53,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col min-h-screen text-slate-800 antialiased selection:bg-emerald-200 selection:text-emerald-900">
+<body class="bg-[#f7f9f4] flex flex-col min-h-screen text-slate-800 antialiased selection:bg-emerald-200 selection:text-emerald-900">
 
     <!-- Header -->
     <header class="sticky top-0 z-50 glass-nav shadow-sm">
@@ -86,16 +86,16 @@
                                     <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Information</span>
                                 </div>
                                 <div class="space-y-1">
-                                    <a href="ijari-about.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-about.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-info-circle text-slate-400 w-4"></i> About Journal
                                     </a>
-                                    <a href="ijari-editorial-board.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-editorial-board.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-users text-slate-400 w-4"></i> Editorial Board
                                     </a>
-                                    <a href="ijari-archives.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-archives.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-archive text-slate-400 w-4"></i> Archives
                                     </a>
-                                    <a href="ijari-current-issues.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-current-issues.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-book-open text-slate-400 w-4"></i> Current Issues
                                     </a>
                                 </div>
@@ -106,16 +106,16 @@
                                     <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Guidelines</span>
                                 </div>
                                 <div class="space-y-1">
-                                    <a href="ijari-instructions.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-instructions.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-file-alt text-slate-400 w-4"></i> Instructions to Author
                                     </a>
-                                    <a href="ijari-policies-ethics.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-policies-ethics.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-balance-scale text-slate-400 w-4"></i> Policies & Ethics
                                     </a>
-                                    <a href="ijari-plagiarism-policy.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-plagiarism-policy.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-copy text-slate-400 w-4"></i> Plagiarism Policy
                                     </a>
-                                    <a href="ijari-peer-review.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-emerald-600 transition-colors text-sm">
+                                    <a href="ijari-peer-review.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
                                         <i class="fas fa-eye text-slate-400 w-4"></i> Peer Review Process
                                     </a>
                                 </div>
@@ -140,13 +140,13 @@
                         Farm Science Today <i class="fas fa-chevron-down text-[10px] opacity-70 mt-1"></i>
                     </button>
                     <div class="absolute left-0 top-full w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 py-3 dropdown-menu z-50">
-                        <a href="emagazine-about.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
+                        <a href="emagazine-about.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors">
                             <i class="fas fa-info-circle text-slate-400 w-4"></i> About Magazine
                         </a>
-                        <a href="emagazine-guidelines.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
+                        <a href="emagazine-guidelines.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors">
                             <i class="fas fa-list-ul text-slate-400 w-4"></i> Submission Guidelines
                         </a>
-                        <a href="emagazine-archives.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
+                        <a href="emagazine-archives.php" class="flex items-center gap-3 px-5 py-2.5 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors">
                             <i class="fas fa-archive text-slate-400 w-4"></i> Archives
                         </a>
                         <div class="mt-2 pt-2 border-t border-slate-50 bg-emerald-50/50">

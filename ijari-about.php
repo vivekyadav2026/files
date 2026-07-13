@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="About Journal" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="About Journal" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -26,7 +26,7 @@
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-5xl">
             <div class="grid lg:grid-cols-3 gap-10">
                 <div class="lg:col-span-2">
-                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-10 prose prose-emerald prose-lg max-w-none text-slate-600">
+                    <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-10 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                         <p>The <strong>International Journal of Agricultural Research and Innovation (IJARI)</strong> is a peer-reviewed, open-access journal dedicated to advancing scientific knowledge and fostering innovation across the diverse fields of agriculture and allied sciences. The journal serves as a global platform for researchers, academicians, scientists, extension professionals, and students to publish original research findings, review articles, case studies, and innovative solutions addressing contemporary challenges in agricultural systems worldwide.</p>
                         
                         <p>With a strong commitment to scientific rigor and academic excellence, IJARI publishes high-quality manuscripts spanning Agronomy, Horticulture, Plant Breeding and Genetics, Soil Science, Plant Pathology, Entomology, Agricultural Biotechnology, Agricultural Economics, Agricultural Engineering, Agricultural Extension, Food Science and Technology, Animal Husbandry and Dairy Science, Fisheries Science, Forestry, and Environmental Science, among other allied disciplines.</p>
@@ -37,19 +37,19 @@
                         <p>The International Journal of Agricultural Research and Innovation (IJARI) publishes original research and review articles for a global readership across all major fields of agricultural and allied sciences. Subject areas covered include:</p>
                         
                         <div class="not-prose flex flex-wrap gap-2 mt-4">
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Agronomy</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Soil Science</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Horticulture</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Entomology</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Plant Pathology</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Plant Science</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Biotechnology</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Genetics</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Animal Science</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Fisheries</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Food Science</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Agribusiness</span>
-                            <span class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">Climate Change</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Agronomy</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Soil Science</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Horticulture</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Entomology</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Plant Pathology</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Plant Science</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Biotechnology</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Genetics</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Animal Science</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Fisheries</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Food Science</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Agribusiness</span>
+                            <span class="px-3 py-1 bg-[#f7f9f4] border border-slate-200 rounded-full text-xs text-slate-600">Climate Change</span>
                         </div>
                     </div>
                 </div>

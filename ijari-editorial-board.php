@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="assets/banner_slide_2.png" alt="Editorial Board" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -42,7 +42,7 @@
                             <i class="fas fa-university text-slate-400 mt-1"></i>
                             <span class="max-w-[300px]">Dr. Rajendra Prasad Central Agricultural University Pusa Samastipur</span>
                         </p>
-                        <a href="mailto:praveen22@rpcau.ac.in" class="inline-flex items-center gap-2 bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-slate-200">
+                        <a href="mailto:praveen22@rpcau.ac.in" class="inline-flex items-center gap-2 bg-[#f7f9f4] hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-slate-200">
                             <i class="fas fa-envelope text-emerald-500"></i> praveen22@rpcau.ac.in
                         </a>
                     </div>
@@ -59,7 +59,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Member Card -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Abhishek Raj</h3>
@@ -68,7 +68,7 @@
                     </div>
                     
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Rajan Kumar</h3>
@@ -77,7 +77,7 @@
                     </div>
                     
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Siddhant Padhi</h3>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user-graduate"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Hemant Kumar</h3>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Theja Anguli</h3>
@@ -122,7 +122,7 @@
                     </div>
                     
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Sanjay Kumar</h3>
@@ -131,7 +131,7 @@
                     </div>
                     
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-emerald-100 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
+                        <div class="w-14 h-14 rounded-xl bg-[#f7f9f4] group-hover:bg-emerald-50 text-slate-400 group-hover:text-emerald-500 flex items-center justify-center text-xl mb-4 transition-colors">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 class="font-bold text-lg text-slate-900 mb-1 font-['Outfit']">Dr. Krishna D.K.</h3>

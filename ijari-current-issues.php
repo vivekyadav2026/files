@@ -14,12 +14,12 @@ usort($journalArticles, function($a, $b) {
 ?><?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_1.png" alt="Current Issue" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Current Issue" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -38,8 +38,8 @@ usort($journalArticles, function($a, $b) {
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
             <?php if (empty($journalArticles)): ?>
-                <div class="py-20 bg-white rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                    <div class="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+                <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden text-center flex flex-col items-center">
+                    <div class="w-24 h-24 bg-[#f7f9f4] rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-book-reader text-4xl text-emerald-300"></i>
                     </div>
                     <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">Preparing First Issue</h2>
@@ -60,7 +60,7 @@ usort($journalArticles, function($a, $b) {
                                 <p class="text-xs text-slate-400 mb-6">DOI: <a href="https://doi.org/<?php echo htmlspecialchars($art['doi']); ?>" target="_blank" class="hover:underline text-emerald-600"><?php echo htmlspecialchars($art['doi']); ?></a></p>
                             <?php endif; ?>
 
-                            <details class="group mb-6 border border-slate-100 rounded-xl bg-slate-50/50 p-4">
+                            <details class="group mb-6 border border-slate-100 rounded-xl bg-[#f7f9f4]/50 p-4">
                                 <summary class="font-semibold text-sm cursor-pointer select-none text-slate-700 flex justify-between items-center outline-none">
                                     <span>View Abstract</span>
                                     <i class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>

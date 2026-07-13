@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_3.png" alt="About Us" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="About Us" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -24,7 +24,7 @@
     
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
+            <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-12 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                 <p class="lead text-xl text-slate-700 font-medium">Welcome to the official platform of the International Journal of Agricultural Research and Innovation (IJARI) and the Farm Science Today e-Magazine. We are dedicated to the rapid, open-access dissemination of scientific knowledge across all domains of agriculture.</p>
                 
                 <h3 class="text-2xl font-bold text-slate-900 font-['Outfit'] mt-10 mb-4 border-b border-slate-100 pb-2">Our Mission</h3>
@@ -32,12 +32,12 @@
                 
                 <h3 class="text-2xl font-bold text-slate-900 font-['Outfit'] mt-10 mb-4 border-b border-slate-100 pb-2">Our Publications</h3>
                 <div class="grid md:grid-cols-2 gap-6 not-prose mt-6">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-book"></i></div>
                         <h4 class="font-bold text-lg text-slate-900 mb-2">IJARI Journal</h4>
                         <p class="text-slate-600 text-sm">A quarterly, double-blind peer-reviewed journal publishing original research and review articles.</p>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-file-alt"></i></div>
                         <h4 class="font-bold text-lg text-slate-900 mb-2">Farm Science Today</h4>
                         <p class="text-slate-600 text-sm">A monthly e-Magazine presenting scientific knowledge in an accessible format for progressive farmers and students.</p>

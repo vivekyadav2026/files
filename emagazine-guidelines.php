@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
         
-    <div class="relative bg-[#1c2e1a] text-white py-12 md:py-16 overflow-hidden border-b border-[#2d472a] text-center">
+    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_3.png" alt="Submission Guidelines" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-[#1c2e1a]/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1c2e1a] via-transparent to-transparent"></div>
+            <img src="assets/banner_slide_2.png" alt="Submission Guidelines" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
+            <div class="absolute inset-0 bg-emerald-900/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -24,11 +24,11 @@
     
         
         <div class="container mx-auto px-6 py-10 md:py-16 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none text-slate-600">
+            <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-12 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
                 <p class="lead">To ensure smooth and timely processing of your submission, authors are requested to carefully follow the guidelines below before submitting their articles.</p>
                 
                 <div class="grid md:grid-cols-2 gap-8 not-prose mt-10">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <h4 class="font-bold text-lg text-slate-900 mb-4 font-['Outfit'] border-b border-slate-200 pb-2">Manuscript Length & Format</h4>
                         <ul class="space-y-3 text-sm text-slate-600">
                             <li><i class="fas fa-check text-emerald-500 mr-2"></i> Max length: <strong>1500–2000 words</strong></li>
@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                     
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="bg-[#f7f9f4] p-6 rounded-2xl border border-slate-100">
                         <h4 class="font-bold text-lg text-slate-900 mb-4 font-['Outfit'] border-b border-slate-200 pb-2">Authorship</h4>
                         <ul class="space-y-3 text-sm text-slate-600">
                             <li><i class="fas fa-check text-emerald-500 mr-2"></i> Full names (e.g. Rajesh Kumar)</li>
