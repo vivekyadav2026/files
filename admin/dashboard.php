@@ -23,6 +23,10 @@ $submissions = read_json($submissionsFile);
 $articles = read_json($articlesFile);
 $messages = read_json($messagesFile);
 $reviewers = read_json($reviewersFile);
+$membershipsFile = '../data/memberships.json';
+$paymentsFile = '../data/payments.json';
+$memberships = read_json($membershipsFile);
+$payments = read_json($paymentsFile);
 
 // Handle Actions (Delete/Unpublish/Delete Message/Change Password/Reviewer Approval)
 $action = $_GET['action'] ?? '';
@@ -208,6 +212,29 @@ $msg = $_GET['msg'] ?? '';
                         if ($msgCount > 0): 
                         ?>
                             <span class="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $msgCount; ?></span>
+                        <?php endif; ?>
+                    </button>
+                    <!-- New Tabs -->
+                    <button onclick="showTab('memberships')" id="tab-btn-memberships" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-id-card w-5 text-base"></i> Memberships
+                        </div>
+                        <?php 
+                        $memCount = count(array_filter($memberships, function($m) { return $m['status'] === 'pending'; }));
+                        if ($memCount > 0): 
+                        ?>
+                            <span class="bg-indigo-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $memCount; ?></span>
+                        <?php endif; ?>
+                    </button>
+                    <button onclick="showTab('payments')" id="tab-btn-payments" class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-file-invoice-dollar w-5 text-base"></i> Payments
+                        </div>
+                        <?php 
+                        $payCount = count(array_filter($payments, function($p) { return $p['status'] === 'pending'; }));
+                        if ($payCount > 0): 
+                        ?>
+                            <span class="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-xs"><?php echo $payCount; ?></span>
                         <?php endif; ?>
                     </button>
                     <button onclick="showTab('settings')" id="tab-btn-settings" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-sm font-semibold text-slate-400">
@@ -573,6 +600,106 @@ $msg = $_GET['msg'] ?? '';
                     </div>
                 </div>
 
+                
+                <!-- Tab: Memberships -->
+                <div id="tab-memberships" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Applicant</th>
+                                        <th class="px-6 py-4">Type & Transaction</th>
+                                        <th class="px-6 py-4">Status</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php if (empty($memberships)): ?>
+                                        <tr>
+                                            <td colspan="4" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-id-card text-3xl mb-3 block text-slate-300"></i>
+                                                No memberships found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($memberships as $mem): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5">
+                                                <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($mem['name']); ?></div>
+                                                <a href="mailto:<?php echo htmlspecialchars($mem['email']); ?>" class="text-xs text-slate-400 hover:text-emerald-600 transition-colors"><?php echo htmlspecialchars($mem['email']); ?></a>
+                                                <div class="text-[10px] text-slate-400 mt-1"><?php echo htmlspecialchars($mem['affiliation'] ?? ''); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <div class="font-bold text-emerald-600"><?php echo htmlspecialchars($mem['type']); ?></div>
+                                                <div class="text-xs text-slate-500 mt-1">Txn: <span class="font-mono bg-slate-100 px-1 rounded"><?php echo htmlspecialchars($mem['transaction_id']); ?></span></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <?php if ($mem['status'] === 'pending'): ?>
+                                                    <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">Pending</span>
+                                                <?php else: ?>
+                                                    <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">Approved</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="px-8 py-5 text-right">
+                                                <button onclick="alert('Feature coming soon: Approve Membership')" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">Manage</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Payments -->
+                <div id="tab-payments" class="space-y-6 max-w-5xl hidden">
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100/50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="px-8 py-4">Payer</th>
+                                        <th class="px-6 py-4">Details</th>
+                                        <th class="px-6 py-4">Receipt</th>
+                                        <th class="px-8 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm">
+                                    <?php if (empty($payments)): ?>
+                                        <tr>
+                                            <td colspan="4" class="px-8 py-12 text-center text-slate-400 font-medium">
+                                                <i class="fas fa-file-invoice-dollar text-3xl mb-3 block text-slate-300"></i>
+                                                No payment records found.
+                                            </td>
+                                        </tr>
+                                    <?php else: foreach ($payments as $pay): ?>
+                                        <tr class="hover:bg-slate-50/50 transition-colors">
+                                            <td class="px-8 py-5">
+                                                <div class="font-semibold text-slate-800"><?php echo htmlspecialchars($pay['payer_name']); ?></div>
+                                                <div class="text-[10px] text-slate-400 mt-1"><?php echo date('M d, Y', $pay['submitted_at']); ?></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <div class="font-bold text-slate-700">₹<?php echo htmlspecialchars($pay['amount']); ?> - <?php echo htmlspecialchars($pay['payment_for']); ?></div>
+                                                <div class="text-xs text-slate-500 mt-1">Txn: <span class="font-mono bg-slate-100 px-1 rounded"><?php echo htmlspecialchars($pay['transaction_id']); ?></span></div>
+                                            </td>
+                                            <td class="px-6 py-5">
+                                                <?php if(!empty($pay['receipt_path'])): ?>
+                                                    <a href="../<?php echo htmlspecialchars($pay['receipt_path']); ?>" target="_blank" class="text-xs text-emerald-600 hover:underline"><i class="fas fa-image mr-1"></i>View</a>
+                                                <?php else: ?>
+                                                    -
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="px-8 py-5 text-right">
+                                                <button onclick="alert('Feature coming soon: Verify Payment')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">Verify</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Tab 5: Settings / Change Password -->
                 <div id="tab-settings" class="space-y-6 max-w-xl hidden">
                     <?php if (!empty($error_pwd)): ?>
@@ -642,9 +769,11 @@ $msg = $_GET['msg'] ?? '';
             document.getElementById('tab-reviewers').classList.add('hidden');
             document.getElementById('tab-messages').classList.add('hidden');
             document.getElementById('tab-settings').classList.add('hidden');
+            document.getElementById('tab-memberships').classList.add('hidden');
+            document.getElementById('tab-payments').classList.add('hidden');
             
             // Deactivate all button active styles
-            const btns = ['overview', 'pending', 'catalog', 'reviewers', 'messages', 'settings'];
+            const btns = ['overview', 'pending', 'catalog', 'reviewers', 'messages', 'memberships', 'payments', 'settings'];
             btns.forEach(btn => {
                 const el = document.getElementById('tab-btn-' + btn);
                 if (el) {

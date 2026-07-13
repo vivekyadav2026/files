@@ -11,10 +11,11 @@ $magazineArticles = array_filter($articles, function($art) {
 usort($magazineArticles, function($a, $b) {
     return $b['published_at'] <=> $a['published_at'];
 });
-?><?php include 'header.php'; ?>
 
-        
-    <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
+include "header.php";
+?>
+
+<div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="assets/banner_slide_2.png" alt="Magazine Archives" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
@@ -69,4 +70,4 @@ usort($magazineArticles, function($a, $b) {
             <?php endif; ?>
         </div>
         
-<?php include 'footer.php'; ?>
+<?php include "footer.php"; ?>

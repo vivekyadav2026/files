@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include "header.php"; ?>
 
 <!-- Hero Section with Banner Slider -->
         <section class="relative h-[70vh] md:h-[85vh] min-h-[480px] md:min-h-[600px] overflow-hidden">
@@ -629,6 +629,5 @@
         </div>
     </div>
 </section>
-
-
-<?php include 'footer.php'; ?>
+        
+<?php include "footer.php"; ?>

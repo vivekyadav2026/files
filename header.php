@@ -64,12 +64,13 @@
                     <img src="assets/Logo.png" alt="IJARI Logo" class="h-10 w-auto object-contain fallback-icon">
                 </div>
                 <div>
-                    <h1 class="font-bold text-emerald-900 text-base md:text-lg leading-tight uppercase hidden md:block tracking-wide">International Journal of Agricultural<br>Research & Innovation</h1>
+                    <h1 class="font-bold text-emerald-900 text-sm xl:text-base leading-tight uppercase hidden xl:block tracking-wide">International Journal of Agricultural<br>Research & Innovation</h1>
+                    <h1 class="font-bold text-emerald-900 text-xl hidden md:block xl:hidden tracking-wider">IJARI</h1>
                     <h1 class="font-bold text-emerald-900 text-2xl md:hidden tracking-wider">IJARI</h1>
                 </div>
             </a>
             
-            <nav class="hidden lg:flex items-center gap-8 font-medium text-[15px] text-slate-600 nav-text">
+            <nav class="hidden xl:flex items-center gap-5 font-medium text-[14px] text-slate-600 nav-text">
                 <a href="index.php" class="hover:text-emerald-600 nav-link transition-colors">Home</a>
                 <a href="about.php" class="hover:text-emerald-600 nav-link transition-colors">About</a>
                 
@@ -157,15 +158,16 @@
                     </div>
                 </div>
                 
+                <a href="payment.php" class="hover:text-emerald-600 nav-link transition-colors">Payment</a>
                 <a href="contact.php" class="hover:text-emerald-600 nav-link transition-colors">Contact Us</a>
             </nav>
             
-            <a href="ijari-submit.php" class="hidden lg:inline-flex bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-emerald-700 transition-all shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.23)] hover:-translate-y-0.5 items-center gap-2 nav-text">
+            <a href="ijari-submit.php" class="hidden xl:inline-flex bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-emerald-700 transition-all shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.23)] hover:-translate-y-0.5 items-center gap-2 nav-text">
                 Submit <i class="fas fa-arrow-right text-sm"></i>
             </a>
             
             <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-600 hover:text-emerald-600 focus:outline-none">
+            <button onclick="toggleMobileMenu()" class="xl:hidden text-slate-600 hover:text-emerald-600 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
@@ -216,6 +218,7 @@
                         </div>
                     </div>
                     
+                    <a href="payment.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Payment</a>
                     <a href="contact.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Contact Us</a>
                 </nav>
             </div>
