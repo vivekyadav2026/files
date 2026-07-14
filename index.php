@@ -6,17 +6,17 @@
                 <div class="slides" id="banner-slides">
                     <!-- Slide 1 -->
                     <div class="slide">
-                        <img src="assets/banner_slide_1.png" alt="Agricultural Research">
+                        <img src="assets/banner_slide_1_light.png" alt="Agricultural Research">
                         <div class="slide-overlay"></div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="slide">
-                        <img src="assets/banner_slide_2.png" alt="Biotechnology">
+                        <img src="assets/banner_slide_2_light.png" alt="Biotechnology">
                         <div class="slide-overlay"></div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="slide">
-                        <img src="assets/banner_slide_3.png" alt="Sustainable Farming">
+                        <img src="assets/banner_slide_3_light.png" alt="Sustainable Farming">
                         <div class="slide-overlay"></div>
                     </div>
                 </div>
@@ -24,12 +24,12 @@
             
             <div class="absolute inset-0 z-10 flex items-center">
                 <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                    <div class="lg:w-7/12 text-white text-center lg:text-left">
+                    <div class="lg:w-6/12 text-white text-left">
                         <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] sm:text-xs font-semibold mb-6 sm:mb-8 backdrop-blur-md uppercase tracking-wider">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                             Open Access Journal
                         </div>
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight font-['Outfit'] tracking-tight text-white drop-shadow-md">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight font-['Outfit'] tracking-tight text-emerald-900">
                             Advancing Global<br>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Agricultural Research</span>
                         </h1>
@@ -47,49 +47,50 @@
                     </div>
                     
                     <!-- Stats Card -->
-                    <div class="lg:w-5/12 w-full max-w-md mx-auto hidden lg:block perspective-1000">
-                        <div class="bg-white/5 backdrop-blur-xl p-10 rounded-3xl border border-white/10 shadow-2xl text-white transform hover:rotate-y-2 transition-transform duration-500">
-                            <h3 class="text-2xl font-bold mb-8 pb-4 border-b border-white/10 font-['Outfit']">Journal Metrics</h3>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5 hover:bg-white/10 transition-colors">
-                                    <i class="fas fa-calendar-alt text-emerald-400 text-2xl mb-2"></i>
-                                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold mb-1">Frequency</div>
-                                    <div class="font-bold text-lg">Quarterly</div>
-                                </div>
-                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5 hover:bg-white/10 transition-colors">
-                                    <i class="fas fa-user-check text-emerald-400 text-2xl mb-2"></i>
-                                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold mb-1">Review</div>
-                                    <div class="font-bold text-lg">Double-blind</div>
-                                </div>
-                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5 hover:bg-white/10 transition-colors">
-                                    <i class="fas fa-unlock-alt text-emerald-400 text-2xl mb-2"></i>
-                                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold mb-1">Access</div>
-                                    <div class="font-bold text-lg">100% Open</div>
-                                </div>
-                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5 hover:bg-white/10 transition-colors">
-                                    <i class="fas fa-bolt text-emerald-400 text-2xl mb-2"></i>
-                                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold mb-1">Turnaround</div>
-                                    <div class="font-bold text-lg">Rapid</div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="lg:w-5/12 w-full max-w-md mx-auto hidden lg:block perspective-1000">
+                          <div class="bg-white p-8 rounded-3xl border border-emerald-100/50 shadow-2xl text-slate-800 transform hover:rotate-y-2 transition-transform duration-500">
+                              <h3 class="text-2xl font-bold mb-6 pb-4 border-b border-slate-100 text-emerald-950 font-['Outfit']">Journal Metrics</h3>
+                              <div class="grid grid-cols-2 gap-4">
+                                  <div class="bg-emerald-50/40 rounded-2xl p-4 border border-emerald-100/50 hover:bg-emerald-50/70 transition-colors">
+                                      <i class="fas fa-calendar-alt text-emerald-600 text-2xl mb-2"></i>
+                                      <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Frequency</div>
+                                      <div class="font-bold text-slate-800 text-base">Quarterly</div>
+                                  </div>
+                                  <div class="bg-emerald-50/40 rounded-2xl p-4 border border-emerald-100/50 hover:bg-emerald-50/70 transition-colors">
+                                      <i class="fas fa-user-check text-emerald-600 text-2xl mb-2"></i>
+                                      <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Review</div>
+                                      <div class="font-bold text-slate-800 text-base">Double-blind</div>
+                                  </div>
+                                  <div class="bg-emerald-50/40 rounded-2xl p-4 border border-emerald-100/50 hover:bg-emerald-50/70 transition-colors">
+                                      <i class="fas fa-unlock-alt text-emerald-600 text-2xl mb-2"></i>
+                                      <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Access</div>
+                                      <div class="font-bold text-slate-800 text-base">100% Open</div>
+                                  </div>
+                                  <div class="bg-emerald-50/40 rounded-2xl p-4 border border-emerald-100/50 hover:bg-emerald-50/70 transition-colors">
+                                      <i class="fas fa-bolt text-emerald-600 text-2xl mb-2"></i>
+                                      <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Turnaround</div>
+                                      <div class="font-bold text-slate-800 text-base">Rapid</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                 </div>
             </div>
             
             <!-- Slider Controls -->
-            <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 text-white w-14 h-14 rounded-full hidden md:flex items-center justify-center backdrop-blur-md border border-white/10 transition-all hover:scale-110">
+            <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-emerald-900 shadow-lg border-none w-14 h-14 rounded-full hidden md:flex items-center justify-center backdrop-blur-md border border-white/10 transition-all hover:scale-110">
                 <i class="fas fa-chevron-left text-xl"></i>
             </button>
-            <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 text-white w-14 h-14 rounded-full hidden md:flex items-center justify-center backdrop-blur-md border border-white/10 transition-all hover:scale-110">
+            <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-emerald-900 shadow-lg border-none w-14 h-14 rounded-full hidden md:flex items-center justify-center backdrop-blur-md border border-white/10 transition-all hover:scale-110">
                 <i class="fas fa-chevron-right text-xl"></i>
             </button>
             
             <!-- Slider Indicators -->
             <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
                 <button onclick="goToSlide(0)" class="w-12 h-1.5 rounded-full bg-emerald-500 transition-all indicator"></button>
-                <button onclick="goToSlide(1)" class="w-12 h-1.5 rounded-full bg-white/30 hover:bg-white/50 transition-all indicator"></button>
-                <button onclick="goToSlide(2)" class="w-12 h-1.5 rounded-full bg-white/30 hover:bg-white/50 transition-all indicator"></button>
+                <button onclick="goToSlide(1)" class="w-12 h-1.5 rounded-full bg-emerald-900/20 hover:bg-emerald-900/40 transition-all indicator"></button>
+                <button onclick="goToSlide(2)" class="w-12 h-1.5 rounded-full bg-emerald-900/20 hover:bg-emerald-900/40 transition-all indicator"></button>
             </div>
         </section>
         
@@ -103,10 +104,10 @@
                 slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
                 indicators.forEach((ind, index) => {
                     if(index === currentSlide) {
-                        ind.classList.remove('bg-white/30');
+                        ind.classList.remove('bg-emerald-900/20');
                         ind.classList.add('bg-emerald-500');
                     } else {
-                        ind.classList.add('bg-white/30');
+                        ind.classList.add('bg-emerald-900/20');
                         ind.classList.remove('bg-emerald-500');
                     }
                 });
@@ -145,7 +146,7 @@
             <!-- Arched Card 1 -->
             <div class="bg-white arch-shape p-2 shadow-xl border-4 border-white hover:border-lime transition-all duration-300 group">
                 <div class="w-full h-64 bg-slate-200 arch-shape overflow-hidden relative">
-                    <img src="assets/banner_slide_1.png" alt="Agronomy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/banner_slide_1_light.png" alt="Agronomy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-forest to-transparent opacity-60"></div>
                 </div>
                 <div class="p-8 text-center relative z-10 -mt-10">
@@ -160,7 +161,7 @@
             <!-- Arched Card 2 -->
             <div class="bg-white arch-shape p-2 shadow-xl border-4 border-white hover:border-lime transition-all duration-300 group mt-8 md:mt-0">
                 <div class="w-full h-64 bg-slate-200 arch-shape overflow-hidden relative">
-                    <img src="assets/banner_slide_2.png" alt="Biotechnology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/banner_slide_2_light.png" alt="Biotechnology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-forest to-transparent opacity-60"></div>
                 </div>
                 <div class="p-8 text-center relative z-10 -mt-10">
@@ -175,7 +176,7 @@
             <!-- Arched Card 3 -->
             <div class="bg-white arch-shape p-2 shadow-xl border-4 border-white hover:border-lime transition-all duration-300 group mt-8 md:mt-0">
                 <div class="w-full h-64 bg-slate-200 arch-shape overflow-hidden relative">
-                    <img src="assets/banner_slide_3.png" alt="Horticulture" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/banner_slide_3_light.png" alt="Horticulture" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-forest to-transparent opacity-60"></div>
                 </div>
                 <div class="p-8 text-center relative z-10 -mt-10">

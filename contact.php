@@ -37,24 +37,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include "header.php";
 ?>
 
-<div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
+<div class="relative bg-emerald-50 text-emerald-950 py-12 md:py-16 overflow-hidden border-b border-emerald-100 text-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="assets/banner_slide_2.png" alt="Contact Us" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-            <div class="absolute inset-0 bg-emerald-900/85"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
+            <img src="assets/light_banner_v2.png" alt="Contact Us" class="w-full h-full object-cover object-center opacity-40 ">
+            <div class="absolute inset-0 bg-white/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-50 via-transparent to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <nav class="flex justify-center mb-6 text-sm font-semibold text-emerald-400" aria-label="Breadcrumb">
+            <nav class="flex justify-center mb-6 text-sm font-semibold text-emerald-600" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-2">
-                    <li><a href="index.php" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fas fa-home text-xs"></i> Home</a></li>
+                    <li><a href="index.php" class="hover:text-emerald-900 transition-colors flex items-center gap-1.5"><i class="fas fa-home text-xs"></i> Home</a></li>
                     <li><span class="mx-1 text-slate-500">/</span></li>
-                    <li aria-current="page" class="text-white">Contact Us</li>
+                    <li aria-current="page" class="text-emerald-950 font-semibold">Contact Us</li>
                 </ol>
             </nav>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-['Outfit'] tracking-tight text-white drop-shadow-md">Contact Us</h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed drop-shadow">Have questions? Get in touch with our editorial and support teams.</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-['Outfit'] tracking-tight text-emerald-900">Contact Us</h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">Have questions? Get in touch with our editorial and support teams.</p>
         </div>
     </div>
     

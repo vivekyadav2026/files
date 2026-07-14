@@ -42,9 +42,9 @@
         .slides { display: flex; transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
         .slide { min-width: 100%; height: 100%; position: relative; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 50%, rgba(15, 23, 42, 0.9) 100%); }
+        .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.3) 50%, rgba(15, 23, 42, 0.75) 100%); }
         @media (min-width: 1024px) {
-            .slide-overlay { background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.4)); }
+            .slide-overlay { background: linear-gradient(to right, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0) 80%); }
         }
         
         /* Premium Hero Pattern */
@@ -79,55 +79,37 @@
                     <button class="hover:text-emerald-600 flex items-center gap-1.5 transition-colors nav-link">
                         Journal <i class="fas fa-chevron-down text-[10px] opacity-70 mt-1"></i>
                     </button>
-                    <div class="absolute left-0 top-full w-[36rem] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 dropdown-menu z-50">
-                        <div class="grid grid-cols-2 gap-6">
-                            <!-- Column 1: Info & Archive -->
-                            <div>
-                                <div class="px-3 py-1 mb-2 border-b border-slate-50">
-                                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Information</span>
-                                </div>
-                                <div class="space-y-1">
-                                    <a href="ijari-about.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-info-circle text-slate-400 w-4"></i> About Journal
-                                    </a>
-                                    <a href="ijari-editorial-board.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-users text-slate-400 w-4"></i> Editorial Board
-                                    </a>
-                                    <a href="ijari-archives.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-archive text-slate-400 w-4"></i> Archives
-                                    </a>
-                                    <a href="ijari-current-issues.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-book-open text-slate-400 w-4"></i> Current Issues
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Column 2: Guidelines & Policies -->
-                            <div>
-                                <div class="px-3 py-1 mb-2 border-b border-slate-50">
-                                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Guidelines</span>
-                                </div>
-                                <div class="space-y-1">
-                                    <a href="ijari-instructions.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-file-alt text-slate-400 w-4"></i> Instructions to Author
-                                    </a>
-                                    <a href="ijari-policies-ethics.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-balance-scale text-slate-400 w-4"></i> Policies & Ethics
-                                    </a>
-                                    <a href="ijari-plagiarism-policy.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-copy text-slate-400 w-4"></i> Plagiarism Policy
-                                    </a>
-                                    <a href="ijari-peer-review.php" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
-                                        <i class="fas fa-eye text-slate-400 w-4"></i> Peer Review Process
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-50 bg-emerald-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl grid grid-cols-2 gap-4">
-                            <a href="ijari-join-reviewer.php" class="flex items-center justify-center gap-2 px-4 py-2 bg-white border border-emerald-100 rounded-xl text-emerald-700 hover:bg-emerald-50 transition-colors text-sm font-semibold shadow-sm">
-                                <i class="fas fa-user-plus"></i> Join as Reviewer
+                    <div class="absolute left-0 top-full w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 py-3 dropdown-menu z-50">
+                        <a href="ijari-about.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-info-circle text-slate-400 w-4"></i> About Journal
+                        </a>
+                        <a href="ijari-editorial-board.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-users text-slate-400 w-4"></i> Editorial Board
+                        </a>
+                        <a href="ijari-archives.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-archive text-slate-400 w-4"></i> Archives
+                        </a>
+                        <a href="ijari-current-issues.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-book-open text-slate-400 w-4"></i> Current Issues
+                        </a>
+                        <a href="ijari-instructions.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-file-alt text-slate-400 w-4"></i> Instructions to Author
+                        </a>
+                        <a href="ijari-policies-ethics.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-balance-scale text-slate-400 w-4"></i> Policies & Ethics
+                        </a>
+                        <a href="ijari-plagiarism-policy.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-copy text-slate-400 w-4"></i> Plagiarism Policy
+                        </a>
+                        <a href="ijari-peer-review.php" class="flex items-center gap-3 px-5 py-2 hover:bg-[#f7f9f4] hover:text-emerald-600 transition-colors text-sm">
+                            <i class="fas fa-eye text-slate-400 w-4"></i> Peer Review Process
+                        </a>
+                        <div class="mt-2 pt-2 border-t border-slate-50 bg-emerald-50/50">
+                            <a href="ijari-join-reviewer.php" class="flex items-center gap-3 px-5 py-2 hover:bg-emerald-100/50 hover:text-emerald-700 transition-colors text-sm font-semibold">
+                                <i class="fas fa-user-plus text-emerald-600 w-4"></i> Join as Reviewer
                             </a>
-                            <a href="ijari-submit.php" class="flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-colors text-sm shadow-sm">
-                                <i class="fas fa-paper-plane"></i> Submit Paper
+                            <a href="ijari-submit.php" class="flex items-center gap-3 px-5 py-2 text-emerald-700 font-semibold hover:bg-emerald-100/50 transition-colors text-sm">
+                                <i class="fas fa-paper-plane text-emerald-600 w-4"></i> Submit Paper
                             </a>
                         </div>
                     </div>

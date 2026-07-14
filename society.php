@@ -4,7 +4,7 @@ $msg = '';
       $msg = 'Form submitted successfully! We will get back to you shortly.';
   }
 $error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $designation = trim($_POST['designation'] ?? '');
     $affiliation = trim($_POST['affiliation'] ?? '');
@@ -46,64 +46,61 @@ include "header.php";
 ?>
 
         
-    <div class="relative bg-slate-900 pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden z-10">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 bg-pattern opacity-10"></div>
-        <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-emerald-900/40 to-transparent"></div>
-        <div class="absolute -left-40 -bottom-40 w-96 h-96 bg-emerald-500/20 rounded-full blur-[80px]"></div>
+      <div class="relative bg-emerald-50 text-emerald-950 py-12 md:py-16 overflow-hidden border-b border-emerald-100 text-center z-10">
+          <!-- Background Image with Overlay -->
+          <div class="absolute inset-0 z-0 pointer-events-none">
+              <img src="assets/light_banner_v2.png" alt="Banner" class="w-full h-full object-cover object-center opacity-40 ">
+              <div class="absolute inset-0 bg-white/70"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-emerald-50 via-transparent to-transparent"></div>
+          </div>
+          
+          <div class="container mx-auto px-6 relative z-10">
+              <nav class="flex justify-center mb-6 text-sm font-semibold text-emerald-600" aria-label="Breadcrumb">
+                  <ol class="inline-flex items-center space-x-2">
+                      <li><a href="index.php" class="hover:text-emerald-900 transition-colors flex items-center gap-1.5"><i class="fas fa-home text-xs"></i> Home</a></li>
+                      <li><span class="mx-1 text-slate-500">/</span></li>
+                      <li aria-current="page" class="text-emerald-950 font-semibold">IJARI > Society</li>
+                  </ol>
+              </nav>
+              <h1 class="text-4xl md:text-5xl font-bold mb-4 font-['Outfit'] tracking-tight text-emerald-900">
+                  IJARI Research Foundation
+              </h1>
+              <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
+                  Advancing agricultural sciences and fostering innovation globally.
+              </p>
+          </div>
+      </div>
+      
         
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-semibold mb-6 tracking-wide backdrop-blur-md">
-                    <i class="fas fa-home"></i> IJARI > Society
-                </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-['Outfit']">
-                    IJARI Research Foundation
-                </h1>
-                <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-light">
-                    Advancing agricultural sciences and fostering innovation globally.
-                </p>
-            </div>
-        </div>
-        
-        <!-- Decorative Bottom Curve -->
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] md:h-[80px]">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#f7f9f4"></path>
-            </svg>
-        </div>
-    </div>
-    
-        
-        <div class="container mx-auto px-6 py-10 md:py-16 max-w-5xl">
+        <div class="container mx-auto px-6 py-10 md:py-16 max-w-7xl">
             <div class="grid lg:grid-cols-12 gap-12">
-                <!-- Main Content -->
-                <div class="lg:col-span-7 space-y-10">
-                    <div class="bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden p-8 md:p-10 prose prose-emerald prose-lg prose-headings:font-['Oswald'] prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-[#1B4332] max-w-none text-slate-600">
-                        <p class="lead">Founded in <strong>2026</strong>, the <strong>IJARI Research Foundation</strong> is a premier non-profit organization dedicated to the continuous advancement of agricultural research, education, and extension.</p>
-                        
-                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-8">Vision</h3>
-                        <p>To be a global leader in fostering agricultural innovation, sustainability, and scientific excellence to ensure food security and environmental resilience for future generations.</p>
-                        
-                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-8">Mission</h3>
-                        <p>To provide a dynamic platform for researchers, academicians, and farming communities to collaborate, share groundbreaking research, and implement scientifically validated practices that enhance agricultural productivity globally.</p>
-                        
-                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-8">Objectives</h3>
-                        <ul class="space-y-2">
-                            <li>To promote and publish high-quality research through the International Journal of Agricultural Research and Innovation (IJARI).</li>
-                            <li>To disseminate practical agricultural knowledge through the Farm Science Today e-magazine.</li>
-                            <li>To organize national and international conferences, seminars, and workshops.</li>
-                            <li>To confer awards and fellowships recognizing outstanding contributions to agricultural sciences.</li>
-                        </ul>
+                <!-- Info Section -->
+                <div class="lg:col-span-7 space-y-8 text-slate-600 leading-relaxed text-base">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-4 font-['Outfit']">About the Society</h2>
+                        <p class="mb-4">The Agricultural Research and Development Society is a registered scientific organization dedicated to the promotion and advancement of agricultural sciences, rural development, and scientific innovations. The society acts as the proud publisher of the <strong>International Journal of Agricultural Research and Innovation (IJARI)</strong>.</p>
+                        <p>Our network comprises scientists, researchers, extension specialists, and students collaborating to address critical issues like global food security, climate-resilient farming, and sustainable agricultural technologies.</p>
+                    </div>
 
-                        <h3 class="font-['Outfit'] text-2xl font-bold text-slate-900 mt-10 mb-4">Membership Fees</h3>
-                        <div class="overflow-x-auto mb-10">
-                            <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-lg">
+                    <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100/50">
+                        <h3 class="font-bold text-xl text-emerald-950 mb-3 font-['Outfit']">Key Objectives</h3>
+                        <ul class="space-y-2.5">
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Fostering peer-reviewed publication of high-quality scientific literature.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Organizing conferences, workshops, and training for researchers.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Supporting innovative technologies that aid progressive farming.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Membership Fee Categories -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6 font-['Outfit']">Membership Categories & Fees</h3>
+                        <div class="overflow-hidden border border-slate-700/30 rounded-2xl shadow-lg">
+                            <table class="w-full text-left border-collapse text-sm">
                                 <thead>
-                                    <tr class="bg-emerald-800 text-white text-sm uppercase tracking-wide">
-                                        <th class="py-4 px-6 font-semibold">Membership Category</th>
-                                        <th class="py-4 px-6 font-semibold">Indian (Rs.)</th>
-                                        <th class="py-4 px-6 font-semibold">Foreign ($)</th>
+                                    <tr class="bg-slate-900 text-white font-semibold">
+                                        <th class="py-4 px-6 border-b border-slate-700">Category</th>
+                                        <th class="py-4 px-6 border-b border-slate-700">Indian Members (INR)</th>
+                                        <th class="py-4 px-6 border-b border-slate-700">Foreign Members (USD)</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-slate-900 text-slate-300">
@@ -130,7 +127,6 @@ include "header.php";
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
 

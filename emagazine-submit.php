@@ -4,7 +4,7 @@
       $msg = 'Form submitted successfully! We will get back to you shortly.';
   }
   $error = '';
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       $authorName = trim($_POST['author_name'] ?? '');
       $institute = trim($_POST['institute'] ?? '');
       $email = trim($_POST['email'] ?? '');
@@ -62,14 +62,14 @@
 include "header.php";
 ?>
 
-  <div class="relative bg-emerald-900 text-white py-12 md:py-16 overflow-hidden border-b border-emerald-800 text-center">
+  <div class="relative bg-emerald-50 text-emerald-950 py-12 md:py-16 overflow-hidden border-b border-emerald-100 text-center">
           <div class="absolute inset-0 z-0 pointer-events-none">
-              <img src="assets/banner_slide_2.png" alt="Submit Article" class="w-full h-full object-cover object-center opacity-25 scale-105 filter blur-[1px]">
-              <div class="absolute inset-0 bg-emerald-900/85"></div>
+              <img src="assets/light_banner_v2.png" alt="Submit Article" class="w-full h-full object-cover object-center opacity-40 ">
+              <div class="absolute inset-0 bg-white/70"></div>
           </div>
           
           <div class="container mx-auto px-6 relative z-10">
-              <h1 class="text-4xl md:text-5xl font-bold mb-4 font-['Outfit'] tracking-tight text-white drop-shadow-md">Submit Article</h1>
+              <h1 class="text-4xl md:text-5xl font-bold mb-4 font-['Outfit'] tracking-tight text-emerald-900">Submit Article</h1>
           </div>
       </div>
       
