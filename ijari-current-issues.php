@@ -6,7 +6,7 @@ if (file_exists($articlesFile)) {
     if (!is_array($articles)) $articles = [];
 }
 $journalArticles = array_filter($articles, function($art) {
-    return $art['type'] === 'journal';
+    return $art['type'] === 'journal' && isset($art['issue_status']) && $art['issue_status'] === 'current';
 });
 usort($journalArticles, function($a, $b) {
     return $b['published_at'] <=> $a['published_at'];
@@ -41,10 +41,10 @@ include "header.php";
             <?php if (empty($journalArticles)): ?>
                 <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden text-center flex flex-col items-center">
                     <div class="w-24 h-24 bg-[#f7f9f4] rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-book-reader text-4xl text-emerald-300"></i>
+                        <i class="fas fa-clock text-4xl text-emerald-600"></i>
                     </div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">Preparing First Issue</h2>
-                    <p class="text-slate-500 max-w-md text-lg">The current issue will be available shortly after the peer review process of initial submissions is completed.</p>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">Coming Soon</h2>
+                    <p class="text-slate-500 max-w-md text-lg">The current issue is currently preparing and will be available shortly after the peer review process of initial submissions is completed.</p>
                     <a href="ijari-submit.php" class="mt-8 px-6 py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-600/20">Submit Your Paper</a>
                 </div>
             <?php else: ?>

@@ -77,40 +77,62 @@ include "header.php";
                 <!-- Info Section -->
                 <div class="lg:col-span-7 space-y-8 text-slate-600 leading-relaxed text-base">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-4 font-['Outfit']">About the Society</h2>
-                        <p class="mb-4">The Agricultural Research and Development Society is a registered scientific organization dedicated to the promotion and advancement of agricultural sciences, rural development, and scientific innovations. The society acts as the proud publisher of the <strong>International Journal of Agricultural Research and Innovation (IJARI)</strong>.</p>
-                        <p>Our network comprises scientists, researchers, extension specialists, and students collaborating to address critical issues like global food security, climate-resilient farming, and sustainable agricultural technologies.</p>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-4 font-['Outfit']">About IJARI Research Foundation</h2>
+                        <p class="mb-4"><strong>IJARI Research Foundation (IJARI)</strong> was founded in 2026. It is an autonomous research and educational society, which is under process of registration under Societies Registration Act. It is a scientific and educational society, working in agriculture, environment, rural development, allied sciences such as veterinary, home science, biotechnology, engineering as well as natural farming for sustainable development, and provides a unique platform to scientists, academicians, researchers, and policymakers to exchange ideas, encourage research, and disseminate knowledge in the field of agriculture.</p>
+                        <p class="mb-4">IJARI Research Foundation was started with the aim to revitalize agricultural and allied advance scientific research and extension and strengthen community livelihoods by providing members with opportunities for the exchange of knowledge and cooperation among relevant societies. IJARI's primary scope covers Agronomy, Horticulture, Entomology, Plant Pathology, Soil Science, Agricultural Economics, Environmental Science, Home Science, Extension, Agricultural Engineering, Biotechnology as well as humanities and other applied sciences.</p>
+                        <p>IJARI Research Foundation is one of India's emerging networks of agricultural professionals and acts as a bridge between research communities, government bodies, development organizations, and corporate entities and farmers. IJARI achieves this through research and extension publications, field implementation projects, capacity-building programs with integrated deployment of technological and scientific innovation for efficiency and scale.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50/70 p-6 rounded-2xl border border-emerald-100">
+                            <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white mb-4"><i class="fas fa-eye"></i></div>
+                            <h3 class="font-bold text-lg text-emerald-900 mb-2 font-['Outfit']">Vision</h3>
+                            <p class="text-sm">To advance scientific research and innovation for sustainable development, empowering communities with basic and applied knowledge in agriculture. We believe that when students, farmers, and researchers are enabled with the right knowledge and tools, agriculture can become a place of opportunity and progress for all.</p>
+                        </div>
+                        <div class="bg-emerald-50/70 p-6 rounded-2xl border border-emerald-100">
+                            <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white mb-4"><i class="fas fa-bullseye"></i></div>
+                            <h3 class="font-bold text-lg text-emerald-900 mb-2 font-['Outfit']">Mission</h3>
+                            <p class="text-sm">To diversify and strengthen organizational competency to develop and implement strategies and programmes that enhance the capacities of students, farmers, and researchers through empowerment, participation, and advocacy.</p>
+                        </div>
                     </div>
 
                     <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100/50">
-                        <h3 class="font-bold text-xl text-emerald-950 mb-3 font-['Outfit']">Key Objectives</h3>
+                        <h3 class="font-bold text-xl text-emerald-950 mb-3 font-['Outfit']">Our Key Focus Areas</h3>
                         <ul class="space-y-2.5">
-                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Fostering peer-reviewed publication of high-quality scientific literature.</span></li>
-                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Organizing conferences, workshops, and training for researchers.</span></li>
-                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Supporting innovative technologies that aid progressive farming.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Pioneering a participatory approach to the long-term betterment of the agricultural sector.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Enhancing incomes, knowledge access, and research output through access to markets, technologies, and scientific findings.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Bridging knowledge gaps and providing technical/scientific innovations that create measurable impact and improved outcomes.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fas fa-check text-emerald-600 mt-1.5 text-xs"></i> <span>Ensuring communities and systems remain resilient through proper application and dissemination of research for sustainable development.</span></li>
                         </ul>
                     </div>
 
-                    <!-- Our Publications (Moved from About Us) -->
+                    <!-- Our Publications -->
                     <div class="mt-8">
                         <h3 class="text-2xl font-bold text-slate-800 mb-4 font-['Outfit']">Our Publications</h3>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="bg-emerald-50/30 p-6 rounded-2xl border border-emerald-100/50">
                                 <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-book"></i></div>
                                 <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">IJARI Journal</h4>
-                                <p class="text-slate-600 text-sm">A quarterly, double-blind peer-reviewed journal publishing original research and review articles.</p>
+                                <p class="text-slate-600 text-sm">A quarterly, double-blind peer-reviewed journal publishing original research and review articles across all major fields of agricultural and allied sciences.</p>
                             </div>
                             <div class="bg-emerald-50/30 p-6 rounded-2xl border border-emerald-100/50">
                                 <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-file-alt"></i></div>
                                 <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">Farm Science Today</h4>
-                                <p class="text-slate-600 text-sm">A monthly e-Magazine presenting scientific knowledge in an accessible format for progressive farmers and students.</p>
+                                <p class="text-slate-600 text-sm">A monthly open-access e-Magazine presenting scientific knowledge in an accessible format for progressive farmers, students, and researchers.</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Membership Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 font-['Outfit']">Membership</h3>
+                        <p class="text-slate-600 mb-4">All individuals associated with any scientific community or any other interested citizens can become members of IJARI Research Foundation as per the membership policy and guidelines defined by the advisory board. Professionals engaged and interested in teaching, research, or extension in Agriculture and allied sciences shall be admitted as members after they pay the prescribed fee.</p>
+                        <p class="text-slate-600 mb-6">Members shall be entitled to receive the Magazine/Journal of the Foundation free of charge from the year from which subscription is paid, will have rights to vote, and hold an office of the Foundation, provided they have been members for a minimum period of two years prior to the year of election.</p>
+                    </div>
+
                     <!-- Membership Fee Categories -->
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-6 font-['Outfit']">Membership Categories & Fees</h3>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6 font-['Outfit']">Membership Categories &amp; Fees</h3>
                         <div class="overflow-hidden border border-slate-700/30 rounded-2xl shadow-lg">
                             <table class="w-full text-left border-collapse text-sm">
                                 <thead>
@@ -146,6 +168,7 @@ include "header.php";
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Membership Form Sidebar -->
                 <div class="lg:col-span-5">

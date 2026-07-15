@@ -264,7 +264,7 @@
                 <span class="text-lime font-bold tracking-widest uppercase text-sm mb-3 block font-['Oswald']">Monthly e-Magazine</span>
                 <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 font-['Oswald'] uppercase tracking-wider">Farm Science Today</h2>
                 <div class="w-16 h-2 bg-lime mb-8"></div>
-                <p class="text-slate-600 text-lg font-medium mb-8 text-white font-sans leading-relaxed">
+                <p class="text-white text-lg font-medium mb-8 font-sans leading-relaxed">
                     Presenting complex scientific knowledge in a simple, highly accessible style for progressive farmers, students, and researchers.
                 </p>
                 <div class="grid sm:grid-cols-2 gap-6 mb-10 font-sans">
@@ -330,7 +330,7 @@
     </div>
     <div class="container mx-auto px-6 relative z-10 pt-8">
         <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 font-['Oswald'] uppercase tracking-widest drop-shadow-lg">Call For Papers</h2>
-        <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10 font-medium text-white">Submit your original research and review articles for our upcoming issue. Experience rapid peer-review and global visibility.</p>
+        <p class="text-xl text-white max-w-2xl mx-auto mb-10 font-medium">Submit your original research and review articles for our upcoming issue. Experience rapid peer-review and global visibility.</p>
         <a href="ijari-submit.php" class="inline-flex items-center gap-3 bg-[#D4E157] text-[#1B4332] font-bold text-lg px-10 py-5 rounded-tl-3xl rounded-br-3xl hover:bg-white transition-all shadow-[0_8px_0_#9fb32c] hover:-translate-y-1 active:translate-y-2 active:shadow-none uppercase tracking-widest">
             <i class="fas fa-file-upload text-xl"></i> Submit Manuscript Now
         </a>
@@ -494,7 +494,7 @@
     <div class="container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-12 items-stretch">
             <!-- Magazine Cover Card -->
-            <div class="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative overflow-hidden flex flex-col sm:flex-row h-[750px] border border-gray-100 rounded-3xl">
+            <div class="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative overflow-hidden flex flex-col sm:flex-row h-[580px] border border-gray-100 rounded-3xl">
                 <!-- Left Content -->
                 <div class="w-full sm:w-[45%] p-8 sm:p-12 relative z-10 flex flex-col justify-between h-full bg-white">
                     <div class="flex items-center gap-3">
@@ -516,13 +516,13 @@
                 
                 <!-- Right Content (Curved Green Background) -->
                 <div class="w-full sm:w-[55%] bg-[#6a9923] p-8 sm:p-12 relative z-10 flex flex-col justify-between h-full rounded-l-[4rem] sm:rounded-l-[10rem] text-white pl-12 sm:pl-14 shadow-[-15px_0_30px_rgba(0,0,0,0.1)]">
-                    <div class="my-auto pt-10">
-                        <h3 class="text-2xl font-light mb-6 border-b border-white/30 pb-2 inline-block">Subjects Covered</h3>
-                        <ul class="text-base font-bold leading-snug flex items-start gap-3">
-                            <div class="mt-1 shrink-0 bg-white w-8 h-8 rounded-full flex items-center justify-center text-[#6a9923] shadow-md">
-                                <i class="fas fa-check text-sm"></i>
+                    <div class="my-auto">
+                        <h3 class="text-xl font-semibold mb-3 border-b border-white/30 pb-2 inline-block">Subjects Covered</h3>
+                        <ul class="text-sm font-bold leading-relaxed flex items-start gap-3">
+                            <div class="mt-1 shrink-0 bg-white w-7 h-7 rounded-full flex items-center justify-center text-[#6a9923] shadow-md">
+                                <i class="fas fa-check text-xs"></i>
                             </div>
-                            <li class="tracking-wide">Agriculture,<br>Horticulture,<br>Forestry, Fisheries,<br>Biotech, Social<br>Sciences, Engineering</li>
+                            <li class="tracking-wide">Agriculture, Horticulture,<br>Forestry, Fisheries,<br>Biotech, Social Sciences,<br>Engineering</li>
                         </ul>
                     </div>
                     
@@ -532,17 +532,11 @@
                     </div>
                 </div>
                 
-                <!-- Circular Images overlapping the curved boundary -->
-                <div class="absolute top-12 right-12 w-28 h-28 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20 hidden sm:block group">
-                    <img src="assets/vertical_urban_1783953677630.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Subject">
-                </div>
-                <div class="absolute bottom-12 right-12 w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20 hidden sm:block group">
-                    <img src="assets/regen_ag_1783953701249.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Subject">
-                </div>
+
             </div>
 
             <!-- Journal Cover Card -->
-            <div class="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative flex flex-col p-8 sm:p-12 h-[750px] border border-gray-100 rounded-3xl justify-between">
+            <div class="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative flex flex-col p-8 sm:p-10 h-[580px] border border-gray-100 rounded-3xl justify-between">
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-6">
                     <span class="text-xl font-bold text-gray-800">ISSN: XXXX-XXXX</span>
@@ -562,7 +556,7 @@
                 </div>
                 
                 <!-- Geometric Layout -->
-                <div class="relative w-full h-[400px] flex group mt-auto">
+                <div class="relative w-full h-[330px] flex group mt-auto">
                     <!-- Left Side Images (Diagonal Cuts) -->
                     <div class="w-[55%] h-full flex flex-col gap-3 relative z-10">
                         <div class="w-full h-1/2 overflow-hidden shadow-md" style="clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);">
@@ -612,8 +606,8 @@
                     <i class="fas fa-user-tie"></i>
                 </div>
                 <h3 class="text-xl font-bold text-[#1B4332] mb-1 font-['Oswald'] uppercase">Dr. Praveen Kumar</h3>
-                <p class="text-[#556B2F] text-sm font-bold mb-3 uppercase tracking-wide">Editor in Chief</p>
-                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University</p>
+                <p class="text-[#556B2F] text-sm font-bold mb-3 uppercase tracking-wide">Editor-in-Chief</p>
+                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University, Pusa, Samastipur</p>
             </div>
             <div class="bg-white p-6 rounded-tr-[3rem] rounded-bl-[3rem] shadow-xl border-2 border-transparent hover:border-[#D4E157] transition-all text-center group">
                 <div class="w-32 h-32 mx-auto rounded-tl-[2rem] rounded-br-[2rem] bg-emerald-100 flex items-center justify-center text-4xl text-emerald-600 mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform overflow-hidden">
@@ -621,7 +615,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-[#1B4332] mb-1 font-['Oswald'] uppercase">Dr. Abhishek Raj</h3>
                 <p class="text-[#556B2F] text-sm font-bold mb-3 uppercase tracking-wide">Executive Member</p>
-                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University</p>
+                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University, Pusa, Samastipur</p>
             </div>
             <div class="bg-white p-6 rounded-tr-[3rem] rounded-bl-[3rem] shadow-xl border-2 border-transparent hover:border-[#D4E157] transition-all text-center group">
                 <div class="w-32 h-32 mx-auto rounded-tl-[2rem] rounded-br-[2rem] bg-emerald-100 flex items-center justify-center text-4xl text-emerald-600 mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform overflow-hidden">
@@ -629,7 +623,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-[#1B4332] mb-1 font-['Oswald'] uppercase">Dr. Hemant Kumar</h3>
                 <p class="text-[#556B2F] text-sm font-bold mb-3 uppercase tracking-wide">Advisory Member</p>
-                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University</p>
+                <p class="text-slate-500 text-sm">Dr. Rajendra Prasad Central Agricultural University, Pusa, Samastipur</p>
             </div>
         </div>
     </div>

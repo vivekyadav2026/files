@@ -1,1 +1,106 @@
-[]
+[
+    {
+        "id": "art_1",
+        "title": "Immuno-Nutrition Strategies in Aquaculture for Enhanced Disease Resistance",
+        "authors": "Anjali Garg and Navpreet Kaur",
+        "doi": "10.51470/IJAW.2026.07.01.05",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "7",
+        "issue": "1",
+        "year": "2026",
+        "issue_status": "archived",
+        "published_at": 1784074553
+    },
+    {
+        "id": "art_2",
+        "title": "Millets as Superfood: Nutritional Significance, Climate Resilience, and Pathways for Sustainable Development",
+        "authors": "Kamali R , Raju L. Chavan , Nidhi Pandey*, Varadha V Mohan",
+        "doi": "10.51470/IJAW.2026.07.01.01",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "7",
+        "issue": "1",
+        "year": "2026",
+        "issue_status": "archived",
+        "published_at": 1784074550
+    },
+    {
+        "id": "art_3",
+        "title": "Screening of Dominant Aquatic Plants in Polluted Sites of Kolaghat Thermal Power Plant Area, West Bengal, India",
+        "authors": "Sk. Khairul Basar , Deepmala Pathak , Maniklal Pati",
+        "doi": "10.51470/IJAW.2026.07.01.10",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "7",
+        "issue": "1",
+        "year": "2026",
+        "issue_status": "archived",
+        "published_at": 1784074540
+    },
+    {
+        "id": "art_4",
+        "title": "Bioluminescence in Aquatic Ecosystems: Mechanisms, Roles, and Ecological Consequences",
+        "authors": "Monika Yadav, Ruby Yadav and Suchismita Chatterjee Saha",
+        "doi": "10.51470/IJAW.2026.07.01.30",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "7",
+        "issue": "1",
+        "year": "2026",
+        "issue_status": "archived",
+        "published_at": 1784074530
+    },
+    {
+        "id": "art_5",
+        "title": "Integrated Pest Management of Leucinodes orbonalis Guenee: Current Status and Future Prospects",
+        "authors": "Archana Anokhe, Gajendra Singh, Mogili Ramaiah and Manoj Kumar Yadav",
+        "doi": "10.51470/IJAW.2026.07.01.40",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "7",
+        "issue": "1",
+        "year": "2026",
+        "issue_status": "archived",
+        "published_at": 1784074520
+    },
+    {
+        "id": "art_6",
+        "title": "Sustainable Crop Production Under Changing Climate Scenarios in North-West India",
+        "authors": "Dr. Harish Kumar, Rajesh Malik",
+        "doi": "10.51470/IJARI.2025.06.01.12",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "6",
+        "issue": "1",
+        "year": "2025",
+        "issue_status": "archived",
+        "published_at": 1752451200
+    },
+    {
+        "id": "art_7",
+        "title": "Microbial Inoculants for Soil Health and Nutrient Management: A Review",
+        "authors": "Dr. Praveen Kumar, Anshu Sharma",
+        "doi": "10.51470/IJARI.2025.06.01.05",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "6",
+        "issue": "1",
+        "year": "2025",
+        "issue_status": "archived",
+        "published_at": 1752451100
+    },
+    {
+        "id": "art_8",
+        "title": "Precision Agriculture Technologies and Their Adoption Challenges Among Smallholder Farmers",
+        "authors": "Dr. Abhishek Raj, Mohit Kumar",
+        "doi": "10.51470/IJARI.2024.05.01.20",
+        "pdf_path": "uploads/pdf/sample.pdf",
+        "type": "journal",
+        "volume": "5",
+        "issue": "1",
+        "year": "2024",
+        "issue_status": "archived",
+        "published_at": 1720915200
+    }
+]

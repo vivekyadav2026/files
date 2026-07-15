@@ -381,8 +381,17 @@ $msg = $_GET['msg'] ?? '';
                                     <i class="fas fa-paper-plane text-teal-500 text-base"></i>
                                     <span class="text-sm font-semibold">Submit Magazine Form</span>
                                 </a>
+                                <a href="gallery-admin.php" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50 border border-emerald-100 text-slate-700 hover:text-emerald-700 transition-all">
+                                    <i class="fas fa-images text-emerald-500 text-base"></i>
+                                    <span class="text-sm font-semibold">Manage Gallery</span>
+                                </a>
+                                <a href="events-admin.php" class="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 border border-blue-100 text-slate-700 hover:text-blue-700 transition-all">
+                                    <i class="fas fa-calendar-alt text-blue-500 text-base"></i>
+                                    <span class="text-sm font-semibold">Manage Events</span>
+                                </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
 

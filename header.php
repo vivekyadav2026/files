@@ -169,6 +169,8 @@
                 </div>
                 
                 <a href="payment.php" class="hover:text-emerald-600 nav-link transition-colors">Payment</a>
+                <a href="gallery.php" class="hover:text-emerald-600 nav-link transition-colors">Gallery</a>
+                <a href="events.php" class="hover:text-emerald-600 nav-link transition-colors">Events</a>
                 <a href="contact.php" class="hover:text-emerald-600 nav-link transition-colors">Contact Us</a>
             </nav>
             
@@ -229,6 +231,8 @@
                     </div>
                     
                     <a href="payment.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Payment</a>
+                    <a href="gallery.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Gallery</a>
+                    <a href="events.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Events</a>
                     <a href="contact.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100 block">Contact Us</a>
                 </nav>
             </div>
