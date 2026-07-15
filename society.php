@@ -91,6 +91,23 @@ include "header.php";
                         </ul>
                     </div>
 
+                    <!-- Our Publications (Moved from About Us) -->
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4 font-['Outfit']">Our Publications</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-emerald-50/30 p-6 rounded-2xl border border-emerald-100/50">
+                                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-book"></i></div>
+                                <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">IJARI Journal</h4>
+                                <p class="text-slate-600 text-sm">A quarterly, double-blind peer-reviewed journal publishing original research and review articles.</p>
+                            </div>
+                            <div class="bg-emerald-50/30 p-6 rounded-2xl border border-emerald-100/50">
+                                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-file-alt"></i></div>
+                                <h4 class="font-bold text-lg text-slate-900 mb-2 font-['Outfit']">Farm Science Today</h4>
+                                <p class="text-slate-600 text-sm">A monthly e-Magazine presenting scientific knowledge in an accessible format for progressive farmers and students.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Membership Fee Categories -->
                     <div>
                         <h3 class="text-2xl font-bold text-slate-800 mb-6 font-['Outfit']">Membership Categories & Fees</h3>
@@ -103,7 +120,7 @@ include "header.php";
                                         <th class="py-4 px-6 border-b border-slate-700">Foreign Members (USD)</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-slate-900 text-slate-300">
+                                <tbody class="bg-slate-900 text-slate-600">
                                     <tr class="border-b border-slate-700/50 hover:bg-slate-800 transition-colors">
                                         <td class="py-4 px-6 font-medium text-white">Lifetime</td>
                                         <td class="py-4 px-6">2000</td>

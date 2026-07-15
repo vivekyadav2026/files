@@ -42,7 +42,7 @@
                         <h2 class="text-2xl font-bold text-slate-800 mb-6 font-['Outfit'] border-b border-slate-100 pb-2">Editor-in-Chief</h2>
                         <div class="bg-[#f7f9f4] rounded-3xl p-6 flex flex-col md:flex-row gap-6 items-center md:items-start border border-slate-100">
                             <div class="w-24 h-24 rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center">
-                                <i class="fas fa-user-tie text-4xl text-slate-300"></i>
+                                <i class="fas fa-user-tie text-4xl text-slate-600"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900 mb-1 font-['Outfit']">Dr. Harish Kumar</h3>

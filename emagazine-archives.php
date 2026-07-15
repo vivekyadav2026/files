@@ -39,7 +39,7 @@ include "header.php";
             <?php if (empty($magArticles)): ?>
                 <div class="py-20 bg-white rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl border-t-8 border-[#D4E157] relative overflow-hidden flex flex-col items-center text-center">
                     <div class="w-24 h-24 bg-[#f7f9f4] rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-folder-open text-4xl text-slate-300"></i>
+                        <i class="fas fa-folder-open text-4xl text-slate-600"></i>
                     </div>
                     <h2 class="text-3xl font-bold text-slate-800 mb-3 font-['Outfit']">No Past Issues Found</h2>
                     <p class="text-slate-500 max-w-md text-lg">The archives will be populated once magazine issues are moved to past issues.</p>

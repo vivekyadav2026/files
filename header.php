@@ -5,9 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IJARI | International Journal of Agricultural Research and Innovation</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lime: '#D4E157',
+                        forest: '#1B4332',
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        /* Custom Leaf and Arch shapes */
+        .leaf-shape {
+            border-top-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+        .leaf-shape-alt {
+            border-top-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+        }
+        .arch-shape {
+            border-top-left-radius: 8rem;
+            border-top-right-radius: 8rem;
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
         
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, h5, h6, .nav-text { font-family: 'Outfit', sans-serif; }
@@ -72,7 +100,7 @@
             
             <nav class="hidden xl:flex items-center gap-5 font-medium text-[14px] text-slate-600 nav-text">
                 <a href="index.php" class="hover:text-emerald-600 nav-link transition-colors">Home</a>
-                <a href="about.php" class="hover:text-emerald-600 nav-link transition-colors">About</a>
+                <!-- <a href="about.php" class="hover:text-emerald-600 nav-link transition-colors">About</a> -->
                 
                 <!-- IJARI Dropdown -->
                 <div class="relative group dropdown py-4 -my-4">
@@ -167,7 +195,7 @@
                 </div>
                 <nav class="flex flex-col gap-1 text-base font-semibold text-slate-700 font-['Outfit']">
                     <a href="index.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">Home</a>
-                    <a href="about.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">About Us</a>
+                    <!-- <a href="about.php" class="hover:text-emerald-600 transition-colors py-2 border-b border-slate-100">About Us</a> -->
                     
                     <div class="border-b border-slate-100 py-1.5">
                         <button onclick="toggleSubmenu('submenu-journal', 'chevron-journal')" class="w-full flex justify-between items-center text-left py-2 hover:text-emerald-600 transition-colors focus:outline-none">

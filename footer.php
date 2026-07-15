@@ -2,7 +2,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 pt-12 md:pt-16 pb-8 border-t-[6px] border-emerald-500 relative overflow-hidden">
+    <footer class="bg-slate-900 text-slate-600 pt-12 md:pt-16 pb-8 border-t-[6px] border-emerald-500 relative overflow-hidden">
         <!-- Subtle background decoration -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-5">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute w-full h-full">
@@ -62,8 +62,8 @@
         <div class="container mx-auto px-6 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
             <p>&copy; 2026 International Journal of Agricultural Research and Innovation. All rights reserved.</p>
             <div class="mt-4 md:mt-0 space-x-6">
-                <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-slate-300 transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-slate-600 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-600 transition-colors">Terms & Conditions</a>
             </div>
         </div>
     </footer>

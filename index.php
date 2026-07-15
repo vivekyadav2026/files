@@ -29,11 +29,11 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                             Open Access Journal
                         </div>
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight font-['Outfit'] tracking-tight text-emerald-900">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight font-['Outfit'] tracking-tight text-white drop-shadow-md">
                             Advancing Global<br>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Agricultural Research</span>
                         </h1>
-                        <p class="text-sm sm:text-base lg:text-lg text-slate-300 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow">
+                        <p class="text-sm sm:text-base lg:text-lg text-slate-600 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow">
                             Publishing high-quality, peer-reviewed research across agronomy, biotechnology, horticulture, and allied sciences for a sustainable future.
                         </p>
                         <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto lg:flex lg:flex-row lg:justify-start lg:max-w-none">
@@ -209,11 +209,11 @@
                 </div>
             </div>
             
-            <div class="lg:w-1/2 text-left bg-white lg:bg-transparent p-8 lg:p-0 rounded-2xl lg:rounded-none shadow-xl lg:shadow-none">
+            <div class="lg:w-1/2 text-left bg-white lg:bg-transparent p-8 lg:p-0 lg:pr-16 rounded-2xl lg:rounded-none shadow-xl lg:shadow-none">
                 <span class="text-lime lg:text-[#D4E157] font-bold tracking-widest uppercase text-sm mb-3 block font-['Oswald'] bg-forest lg:bg-transparent inline-block px-4 py-1 lg:p-0 rounded-full">Double-Blind Peer Review</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-forest lg:text-white mb-6 font-['Oswald'] uppercase tracking-wider">IJARI Journal</h2>
                 <div class="w-16 h-2 bg-lime mb-8"></div>
-                <p class="text-slate-600 lg:text-slate-300 text-lg font-medium mb-8 font-sans leading-relaxed">
+                <p class="text-slate-600 lg:text-white text-lg font-medium mb-8 font-sans leading-relaxed">
                     The International Journal of Agricultural Research and Innovation is a premier platform dedicated to advancing scientific knowledge across all domains of agriculture.
                 </p>
                 <ul class="space-y-4 mb-10 font-sans font-bold text-slate-700 lg:text-white">
@@ -222,11 +222,11 @@
                         100% Open Access Publication
                     </li>
                     <li class="flex items-center gap-4">
-                        <div class="w-10 h-10 leaf-shape bg-lime text-forest flex items-center justify-center shrink-0"><i class="fas fa-search"></i></div> 
+                        <div class="w-10 h-10 leaf-shape bg-white text-[#1B4332] flex items-center justify-center shrink-0"><i class="fas fa-search"></i></div> 
                         Rigorous Peer Review Process
                     </li>
                     <li class="flex items-center gap-4">
-                        <div class="w-10 h-10 leaf-shape bg-lime text-forest flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt"></i></div> 
+                        <div class="w-10 h-10 leaf-shape bg-white text-[#1B4332] flex items-center justify-center shrink-0"><i class="fas fa-calendar-alt"></i></div> 
                         Published Quarterly
                     </li>
                 </ul>
@@ -264,19 +264,19 @@
                 <span class="text-lime font-bold tracking-widest uppercase text-sm mb-3 block font-['Oswald']">Monthly e-Magazine</span>
                 <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 font-['Oswald'] uppercase tracking-wider">Farm Science Today</h2>
                 <div class="w-16 h-2 bg-lime mb-8"></div>
-                <p class="text-slate-300 text-lg font-medium mb-8 font-sans leading-relaxed">
+                <p class="text-slate-600 text-lg font-medium mb-8 text-white font-sans leading-relaxed">
                     Presenting complex scientific knowledge in a simple, highly accessible style for progressive farmers, students, and researchers.
                 </p>
                 <div class="grid sm:grid-cols-2 gap-6 mb-10 font-sans">
                     <div class="bg-[#2D6A4F] p-6 leaf-shape border-2 border-[#1B4332]">
                         <i class="fas fa-bolt text-3xl text-lime mb-4"></i>
                         <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Fast Timeline</h4>
-                        <p class="text-sm text-slate-300">Rapid 7-day publication timeline.</p>
+                        <p class="text-sm text-slate-600">Rapid 7-day publication timeline.</p>
                     </div>
                     <div class="bg-[#2D6A4F] p-6 leaf-shape border-2 border-[#1B4332]">
                         <i class="fas fa-rupee-sign text-3xl text-lime mb-4"></i>
                         <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Nominal Fee</h4>
-                        <p class="text-sm text-slate-300">Accessible ₹200 processing fee.</p>
+                        <p class="text-sm text-slate-600">Accessible ₹200 processing fee.</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-4 font-sans">
@@ -330,7 +330,7 @@
     </div>
     <div class="container mx-auto px-6 relative z-10 pt-8">
         <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 font-['Oswald'] uppercase tracking-widest drop-shadow-lg">Call For Papers</h2>
-        <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-medium">Submit your original research and review articles for our upcoming issue. Experience rapid peer-review and global visibility.</p>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10 font-medium text-white">Submit your original research and review articles for our upcoming issue. Experience rapid peer-review and global visibility.</p>
         <a href="ijari-submit.php" class="inline-flex items-center gap-3 bg-[#D4E157] text-[#1B4332] font-bold text-lg px-10 py-5 rounded-tl-3xl rounded-br-3xl hover:bg-white transition-all shadow-[0_8px_0_#9fb32c] hover:-translate-y-1 active:translate-y-2 active:shadow-none uppercase tracking-widest">
             <i class="fas fa-file-upload text-xl"></i> Submit Manuscript Now
         </a>
@@ -374,6 +374,8 @@
 </section>
 
 
+
+<?php if (false): ?>
 <!-- Asymmetric Layout (Infographic Style 2) -->
 <section class="py-20 bg-[#f7f9f4] relative overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
@@ -407,6 +409,7 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 
 <!-- Vertical Farming Layout (Grid Style) -->
@@ -445,6 +448,7 @@
 </section>
 
 
+<?php if (false): ?>
 <!-- Regenerative Agriculture Layout (Asymmetric Style) -->
 <section class="py-20 bg-[#f7f9f4] relative overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
@@ -478,6 +482,9 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
+
+
 
 
 
@@ -494,7 +501,7 @@
                         <div class="w-10 h-10 bg-[#7CB342] rounded-tl-[1.2rem] rounded-br-[1.2rem] flex items-center justify-center text-white shrink-0 shadow-md">
                             <i class="fas fa-leaf text-xl"></i>
                         </div>
-                        <span class="text-lg font-bold text-[#1B4332] tracking-wider">ISSN: 1234-5678</span>
+                        <span class="text-xs sm:text-sm font-bold text-[#1B4332] tracking-wider whitespace-nowrap">ISSN: XXXX-XXXX</span>
                     </div>
                     
                     <div class="my-auto">
@@ -508,10 +515,10 @@
                 </div>
                 
                 <!-- Right Content (Curved Green Background) -->
-                <div class="w-full sm:w-[55%] bg-[#6a9923] p-8 sm:p-12 relative z-10 flex flex-col justify-between h-full rounded-l-[4rem] sm:rounded-l-[10rem] text-white pl-12 sm:pl-20 shadow-[-15px_0_30px_rgba(0,0,0,0.1)]">
+                <div class="w-full sm:w-[55%] bg-[#6a9923] p-8 sm:p-12 relative z-10 flex flex-col justify-between h-full rounded-l-[4rem] sm:rounded-l-[10rem] text-white pl-12 sm:pl-14 shadow-[-15px_0_30px_rgba(0,0,0,0.1)]">
                     <div class="my-auto pt-10">
                         <h3 class="text-2xl font-light mb-6 border-b border-white/30 pb-2 inline-block">Subjects Covered</h3>
-                        <ul class="text-lg font-bold leading-snug flex items-start gap-3">
+                        <ul class="text-base font-bold leading-snug flex items-start gap-3">
                             <div class="mt-1 shrink-0 bg-white w-8 h-8 rounded-full flex items-center justify-center text-[#6a9923] shadow-md">
                                 <i class="fas fa-check text-sm"></i>
                             </div>
@@ -521,16 +528,13 @@
                     
                     <div class="mt-auto flex flex-col gap-1 relative z-30">
                         <span class="text-sm font-semibold opacity-80">More Info:</span>
-                        <a href="https://www.ijari.in" target="_blank" class="flex items-center gap-2 text-base font-bold hover:text-[#D4E157] transition-colors"><i class="fas fa-globe text-xl opacity-75"></i> www.ijari.in</a>
+                        <a href="https://www.ijari.in" target="_blank" class="flex items-center gap-2 text-[13px] font-bold hover:text-[#D4E157] transition-colors"><i class="fas fa-globe text-xl opacity-75"></i> www.ijari.in</a>
                     </div>
                 </div>
                 
                 <!-- Circular Images overlapping the curved boundary -->
                 <div class="absolute top-12 right-12 w-28 h-28 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20 hidden sm:block group">
                     <img src="assets/vertical_urban_1783953677630.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Subject">
-                </div>
-                <div class="absolute top-1/2 left-[32%] -translate-y-1/2 w-44 h-44 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20 hidden sm:block group">
-                    <img src="assets/precision_ag.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Subject">
                 </div>
                 <div class="absolute bottom-12 right-12 w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl z-20 hidden sm:block group">
                     <img src="assets/regen_ag_1783953701249.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Subject">
@@ -541,14 +545,14 @@
             <div class="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative flex flex-col p-8 sm:p-12 h-[750px] border border-gray-100 rounded-3xl justify-between">
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-6">
-                    <span class="text-xl font-bold text-gray-800">ISSN: 1234-5678</span>
+                    <span class="text-xl font-bold text-gray-800">ISSN: XXXX-XXXX</span>
                     <span class="text-xl font-bold text-gray-800">2026</span>
                 </div>
                 
                 <!-- Title -->
                 <div class="text-center my-auto px-4">
-                    <h2 class="text-3xl sm:text-[2.2rem] font-extrabold text-[#556B2F] leading-[1.2] tracking-wide uppercase font-['Oswald']">
-                        International Journal of<br>Agricultural Research and<br>Innovation
+                    <h2 class="text-xl sm:text-[1.75rem] font-extrabold text-[#556B2F] leading-[1.3] tracking-wide uppercase font-['Oswald']">
+                        International Journal of<br>Agricultural Research and Innovation
                     </h2>
                 </div>
                 
@@ -581,7 +585,7 @@
                     
                     <!-- Horizontal Green Bar Overlapping -->
                     <div class="absolute top-[48%] -translate-y-1/2 w-full h-12 bg-[#4A3B2C] z-20 flex justify-between items-center px-6 text-white text-xs sm:text-sm font-bold tracking-widest shadow-xl border-y border-[#D4E157]/30">
-                        <a href="https://www.ijari.com" target="_blank" class="hover:text-[#D4E157] transition-colors">WWW.IJARI.COM</a>
+                        <a href="https://www.ijari.in" target="_blank" class="hover:text-[#D4E157] transition-colors">WWW.IJARI.IN</a>
                         <a href="tel:+919729848196" class="hover:text-[#D4E157] transition-colors">+919729848196</a>
                     </div>
                 </div>
